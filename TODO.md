@@ -20,3 +20,4 @@
 ## Facultatif
 - [ ] Faire une PWA
 - [ ] Remplacer le backgroud de la page d'accueil par une vidéo
+- [ ] Mettre l'Easter Egg de Noé
