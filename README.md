@@ -3,7 +3,9 @@
 ## Description
 Projet de site web pour la SAÉ 301 : Développement d'une application à l'IUT d'Orsay (Université Paris-Saclay) en 2e année de BUT Informatique (Parcours A).
 
-=> [http://projets.iut-orsay.fr/triominos/](http://projets.iut-orsay.fr/triominos/)
+$\to$ [https://triominos-pizza.github.io/website/](https://triominos-pizza.github.io/website/)
+
+![image](https://github.com/Triominos-Pizza/website/assets/54336210/bc2d5a5c-c792-4807-848c-241bc4e7d131)
 
 ---
 
