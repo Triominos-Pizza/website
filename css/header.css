@@ -1,0 +1,40 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 75px;
+    background-color: #000;
+    color: #fff;
+}
+
+header #header-logo {
+    /* float: left; */
+    height: 40px;
+    width: auto;
+    margin-inline: 25px;
+    /* position: relative; */
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
+}
+
+header #header-account {
+    display: flex;
+    align-items: center;
+    padding-inline: 25px;
+}
+
+header #header-account > button {
+    margin-inline: 5px;
+}
+
+header #header-account img {
+    height: 40px;
+    width: auto;
+    border-radius: 20px;
+    margin-inline: 10px;
+}
+
+header #header-account p {
+    font-size: 20px;
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Triomino's Pizza",
+    "short_name": "Triomino's",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "Triomino's Pizza - La pizzeria de l'IUT d'Orsay",
+    "icons": [
+        {
+            "src": "assets/images/logos/logo.svg",
+            "type": "image/svg+xml"
+        }
+    ]
+}

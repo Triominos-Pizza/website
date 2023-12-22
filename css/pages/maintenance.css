@@ -1,0 +1,32 @@
+body.maintenance {
+    color: #fff;
+}
+
+body.maintenance main {
+    background-blend-mode: multiply;
+    background-color: #555;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: calc(100vh - 75px); /* Calcule la hauteur en soustrayant celle du header */
+    padding-inline: 50px;
+}
+
+body.maintenance main h1 {
+    font-size: 3rem;
+    font-weight: 750;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+body.maintenance main p {
+    font-size: 1rem;
+    font-weight: 350;
+    margin-top: 0;
+}

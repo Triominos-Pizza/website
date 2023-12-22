@@ -1,0 +1,79 @@
+.primary-button {
+    background-color: #136990;
+    color: #ddd;
+}
+
+.secondary-button {
+    background-color: #ddd;
+    color: #136990;
+    box-shadow: 0 0 0 2px #136990;
+}
+
+.primary-button:hover {
+    background-color: #0b476e;
+    color: #fff;
+}
+
+.primary-button:active {
+    background-color: #0a3c5e;
+    color: #fff;
+    text-shadow: 0 0 30px #fff;
+}
+
+.secondary-button:hover {
+    background-color: #aaa;
+    color: #ddf4ff;
+}
+
+.secondary-button:active {
+    background-color: #999;
+    color: #ddf4ff;
+    text-shadow: 0 0 10px #136990;
+}
+
+.primary-button:disabled, .secondary-button:disabled {
+    cursor: not-allowed;
+}
+
+.primary-button:disabled {
+    color: #ddd;
+    background-color: #5c7386;
+}
+
+.secondary-button:disabled {
+    color: #5c7386;
+    background-color: #aaa;
+    box-shadow: 0 0 0 2px #5c7386;
+}
+
+.secondary-button, .primary-button {
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Kanit', sans-serif;
+    display: inline-block;
+    border: none;
+}
+
+/* Default button size */
+.secondary-button, .primary-button {
+    padding-inline: 25px;
+    padding-block: 10px;
+    margin-inline: 5px;
+    font-size: 16px;
+}
+
+.secondary-button.large-button, .primary-button.large-button {
+    padding-inline: 30px;
+    padding-block: 15px;
+    font-size: 18px;
+}
+
+.secondary-button.mini-button, .primary-button.mini-button {
+    padding-inline: 15px;
+    padding-block: 5px;
+    font-size: 14px;
+}

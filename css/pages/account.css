@@ -1,0 +1,18 @@
+div.profile-picture {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+div.profile-picture .profile-picture-img {
+    height: 100px;
+    width: auto;
+    border-radius: 50%;
+    border: 2px solid black;
+    margin-inline: 20px;
+}
+
+h3 {
+    margin-top: 50px;
+}

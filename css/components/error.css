@@ -1,0 +1,9 @@
+div.error-message {
+    text-align: center;
+    margin: 1em 0;
+    background-color: lightgrey;
+    padding: 1em;
+    border-radius: 1em;
+    color: darkred;
+    padding-inline: 50px;
+}
