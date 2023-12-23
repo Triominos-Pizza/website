@@ -23,7 +23,7 @@
                         $compteClient = $controllerCompteClient->connect($email, hash('sha256', $password));
                         header("Location: $ROOT_PATH/index.php");
                     } catch (Exception $e) {
-                        echo "<p class='error-message'>" . $e->getMessage() . "</p>";
+                        echo "<div class='error-message'>" . $e->getMessage() . "</div>";
                     }
                 }
             ?>

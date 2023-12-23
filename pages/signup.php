@@ -9,53 +9,53 @@
     
     <?php include("../views/components/header.php"); ?>
 
-    <?php
-        include("../controllers/controllerCompteClient.php");
-
-        // Check if all required fields are set
-        $required_fields = array("prenom","nom","email","tel","mdp","mdp_confirm");
-        $all_set = true;
-        foreach ($required_fields as $field) {
-            if (!isset($_POST[$field])) {
-                $all_set = false;
-                break;
-            }
-        }
-
-        // If all required fields are set, create the account
-        if ($all_set) {
-            $prenom = $_POST['prenom'];
-            $nom = $_POST['nom'];
-            $email = $_POST['email'];
-            $tel = $_POST['tel'];
-            $mdp = hash('sha256', $_POST['mdp']);
-            $mdp_confirm = hash('sha256', $_POST['mdp_confirm']);
-            // $photoDeProfil = (isset($_FILES['urlPhotoProfil'])) ? $_FILES['urlPhotoProfil'] : null;
-
-            $controllerCompteClient = new controllerCompteClient();
-            try {
-                if (isset($_FILES['urlPhotoProfil'])) {
-                    $photoDeProfil = $_FILES['urlPhotoProfil'];
-                    $controllerCompteClient->creerCompteClient_photoDeProfil($prenom, $nom, $email, $tel, $mdp, $mdp_confirm, $photoDeProfil);
-                } else {
-                    $controllerCompteClient->creerCompteClient($prenom, $nom, $email, $tel, $mdp, $mdp_confirm);
-                }
-
-                // Open a popup to confirm the account creation
-                echo "<script type='text/javascript'>";
-                echo "alert('Compte créé avec succès');";
-                echo "window.location.href = '$ROOT_PATH/pages/login.php';";
-                echo "</script>";
-            } catch (Exception $e) {
-                echo "<div class='error-message'>";
-                echo "Erreur lors de la création du compte : " . $e->getMessage();
-                echo "</div>";
-            }
-        }
-    ?>
-
     <body>    
         <main>
+            <?php
+                include("../controllers/controllerCompteClient.php");
+
+                // Check if all required fields are set
+                $required_fields = array("prenom","nom","email","tel","mdp","mdp_confirm");
+                $all_set = true;
+                foreach ($required_fields as $field) {
+                    if (!isset($_POST[$field])) {
+                        $all_set = false;
+                        break;
+                    }
+                }
+
+                // If all required fields are set, create the account
+                if ($all_set) {
+                    $prenom = $_POST['prenom'];
+                    $nom = $_POST['nom'];
+                    $email = $_POST['email'];
+                    $tel = $_POST['tel'];
+                    $mdp = hash('sha256', $_POST['mdp']);
+                    $mdp_confirm = hash('sha256', $_POST['mdp_confirm']);
+                    // $photoDeProfil = (isset($_FILES['urlPhotoProfil'])) ? $_FILES['urlPhotoProfil'] : null;
+
+                    $controllerCompteClient = new controllerCompteClient();
+                    try {
+                        if (isset($_FILES['urlPhotoProfil'])) {
+                            $photoDeProfil = $_FILES['urlPhotoProfil'];
+                            $controllerCompteClient->creerCompteClient_photoDeProfil($prenom, $nom, $email, $tel, $mdp, $mdp_confirm, $photoDeProfil);
+                        } else {
+                            $controllerCompteClient->creerCompteClient($prenom, $nom, $email, $tel, $mdp, $mdp_confirm);
+                        }
+
+                        // Open a popup to confirm the account creation
+                        echo "<script type='text/javascript'>";
+                        echo "alert('Compte créé avec succès');";
+                        echo "window.location.href = '$ROOT_PATH/pages/login.php';";
+                        echo "</script>";
+                    } catch (Exception $e) {
+                        echo "<div class='error-message'>";
+                        echo "Erreur lors de la création du compte : " . $e->getMessage();
+                        echo "</div>";
+                    }
+                }
+            ?>
+
             <form action="./signup.php" method="post" enctype="multipart/form-data">
                 <h1>Créer un compte</h1>
 
