@@ -10,10 +10,10 @@
     </head>
     
     <body>
-        <h1>Titre 1</h1>
-        <h2>Titre 2</h2>
-        <h3>Titre 3</h3>
-        <h4>Sous-titre</h4>
+        <h1>Lorem ipsum (Titre 1)</h1>
+        <h2>Lorem ipsum (Titre 2)</h2>
+        <h3>Lorem ipsum (Titre 3)</h3>
+        <h4>Lorem ipsum (Sous-titre)</h4>
         
         <p>Paragraphe</p>
         <p><i>Paragraphe italique</i></p>
