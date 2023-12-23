@@ -10,6 +10,7 @@
 @import "./components/error.css";
 
 /* Specific pages */
+@import "./pages/index.css";
 @import "./pages/maintenance.css";
 @import "./pages/order.css";
 @import "./pages/account.css";
