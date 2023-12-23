@@ -1,7 +1,7 @@
 <?php
     class connexion{
         // L'attribut static qui matérialise la connexion
-        private static $pdo;
+        private static PDO $pdo;
         
         // Le getter public de cet attribut
         static public function pdo() {
@@ -21,7 +21,7 @@
                 return self::$pdo;
             } catch (PDOException $e) {
                 echo "Connexion échouée : " . $e->getMessage() . "<br/>";
-                return false;
+                return null;
             }
         }
 
