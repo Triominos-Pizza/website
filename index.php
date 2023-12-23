@@ -10,7 +10,7 @@
         include_once("./views/components/head.php");
     ?>
     
-    <body class="maintenance">
+    <body class="page-accueil">
         <?php include("./views/components/header.php"); ?>
         
         <main style="background-image: url('<?= $ROOT_PATH ?>/assets/images/backgrounds/background-pizza.png');">
