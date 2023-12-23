@@ -5,6 +5,9 @@ footer {
     padding-inline: min(8rem, 10%);
     padding-block: 2rem;
     font-size: 0.9rem;
+
+    /* Shadow above the footer */
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.9);
 }
 
 footer a {
@@ -34,7 +37,7 @@ footer .container .footer__columns {
     flex-wrap: wrap;
 }
 
-footer .container .footer__columns > div {
+footer .container .footer__columns>div {
     min-width: 250px;
     margin-right: 100px;
     text-align: left;

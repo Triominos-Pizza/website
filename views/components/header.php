@@ -18,13 +18,13 @@
                 echo "</div>";
                 
                 // Profile picture and name
-                echo "<div id='header-profile'>";
+                echo "<a href='$ROOT_URL/pages/account.php' id='header-profile'>";
                 echo "<img " .
-                "src='".$_SESSION['photoDeProfil']."' " .
-                "alt='Photo de profil de ".$_SESSION['prenomClient']." ".$_SESSION['nomClient']."'".
+                    "src='".$_SESSION['photoDeProfil']."' " .
+                    "alt='Photo de profil de ".$_SESSION['prenomClient']." ".$_SESSION['nomClient']."'".
                 "'/>";
                 echo "<p>" . $_SESSION['prenomClient'] . " " . $_SESSION['nomClient'] . "</p>";
-                echo "</div>";
+                echo "</a>";
             }
             
             // If the user is not connected, display buttons to connect or create an account
