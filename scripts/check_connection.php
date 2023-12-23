@@ -1,7 +1,7 @@
 <?php
     (session_status() == PHP_SESSION_NONE) && session_start();
     if (!isset($_SESSION['idClient'])) {
-        header("Location: /triominos/pages/connexion.php");
+        header("Location: $ROOT_URL/pages/login.php");
     }
 
     // Example of a session variable:
