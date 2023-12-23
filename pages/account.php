@@ -13,7 +13,7 @@
         <?php include("../views/components/header.php"); ?>
         
 
-        <main>
+        <main class="account">
             <?php
                 require_once("../controllers/ControllerCompteClient.php");
                 $controllerCompteClient = new ControllerCompteClient();
@@ -50,19 +50,17 @@
 
             <h1>Mon compte</h1>
 
-            <h3>Photo de profil</h3>
-            <div class="profile-picture">
-                <form action="./account.php" method="post" enctype="multipart/form-data">
-                    <img src="<?= $ROOT_PATH . $_SESSION['photoDeProfil'] ?>" alt="Photo de profil" class="profile-picture-img">
-                    <div>
-                        <input type="hidden" name="form" value="update_profile_picture">
-                        <input type="file" name="profile_picture" id="profile_picture" accept="image/png, image/jpeg, image/jpg" required>
-                        <input type="submit" value="Modifier">
-                    </div>
-                </form>
-            </div>
+            <h2>Photo de profil</h2>
+            <form action="./account.php" method="post" enctype="multipart/form-data">
+                <img src="<?= $ROOT_PATH . $_SESSION['photoDeProfil'] ?>" alt="Photo de profil" class="profile-picture-img">
+                <div>
+                    <input type="hidden" name="form" value="update_profile_picture">
+                    <input type="file" name="profile_picture" id="profile_picture" accept="image/png, image/jpeg, image/jpg" required disabled>
+                    <input type="submit" value="Modifier" disabled>
+                </div>
+            </form>
 
-            <h3>Informations personnelles</h3>
+            <h2>Informations personnelles</h2>
             <form action="./account.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="form" value="update_account">
                 <div class="fields">
@@ -79,7 +77,6 @@
                             $pattern = $array[1] ?? ".*";
                             $val = $_SESSION[$field];
 
-                            echo "<p>$field : $pattern</p>";
                             echo "<div class='field'>";
                             echo "<label for='$field'>$label</label>";
                             echo "<input type='text' name='$field' id='$field' value='$val' placeholder='$val' pattern='$pattern' required>";
@@ -92,7 +89,7 @@
             </form>
 
 
-            <h3>Changer de mot de passe</h3>
+            <h2>Changer de mot de passe</h2>
             <form action="./account.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="form" value="update_password">
                 <div class="fields">

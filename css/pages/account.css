@@ -1,14 +1,28 @@
-div.profile-picture {
+main.account {
+    padding-inline: max(10%, 50px);
+}
+
+.account form:has([value="update_profile_picture"]) {
     display: flex;
     flex-direction: row;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-}
+}    
 
-div.profile-picture .profile-picture-img {
+.account form:has([value="update_profile_picture"]) img {
     height: 100px;
     width: auto;
     border-radius: 50%;
     border: 2px solid black;
     margin-inline: 20px;
+}
+
+.account form:has([value="update_profile_picture"]) div {
+    width: max(calc(100% - 100px - 40px - 4px), 500px);
+    margin-block: 20px;
+}
+
+.account form {
+    margin-bottom: 45px;
 }
