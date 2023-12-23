@@ -150,6 +150,60 @@
             return $resultat;
         }
 
+        public static function checkPassword($idClient, $mdpClient) : bool {
+            $requetePreparee = "SELECT * FROM `CompteClient` WHERE `idClient` = :idClient AND `mdpClient` = :mdpClient";
+            $res = static::$connexion->prepare($requetePreparee);
+            $tags = array(
+                "idClient"=> $idClient,
+                "mdpClient"=> hash('sha256', $mdpClient)
+            );
+            $res->execute($tags);
+            $resultat = $res->fetch(PDO::FETCH_ASSOC);
+            return $resultat != null;
+        }
+
+        public static function updateAccount($id, $prenom, $nom, $email, $tel) {
+            $requetePreparee = "
+                UPDATE `CompteClient`
+                SET `prenomClient` = :prenom, `nomClient` = :nom, `emailClient` = :email, `telClient` = :tel
+                WHERE `idClient` = :id
+            ";
+            $res = static::$connexion->prepare($requetePreparee);
+            
+            $tags = array(
+                "prenom"=> $prenom,
+                "nom"=> $nom,
+                "email"=> $email,
+                "tel"=> $tel,
+                "id"=> $id,
+            );            
+            
+            $res->execute($tags);
+
+            static::connectWithId($id);
+        }
+        
+        public static function updatePassword($idClient, $old_password, $new_password, $new_password_confirm) {
+            // Vérifier que les mots de passe correspondent
+            if ($new_password != $new_password_confirm) {
+                throw new Exception("Les mots de passe ne correspondent pas");
+            }
+
+            // Vérifier que l'ancien mot de passe est correct
+            if (!static::checkPassword($idClient, $old_password)) {
+                throw new Exception("Ancien mot de passe incorrect");
+            }
+
+            // Modifier le mot de passe
+            $requetePreparee = "UPDATE `CompteClient` SET `mdpClient` = :mdpClient WHERE `idClient` = :idClient";
+            $res = static::$connexion->prepare($requetePreparee);
+            $tags = array(
+                "mdpClient"=> hash('sha256', $new_password),
+                "idClient"=> $idClient,
+            );
+            $res->execute($tags);
+        }
+
         public static function deleteCompteClient($idClient) {
             $requetePreparee = "DELETE FROM `CompteClient` WHERE `idClient` = :idClient";
             $res = static::$connexion->prepare($requetePreparee);
@@ -157,17 +211,14 @@
             $res->execute($tags);
         }
 
-        public static function connect($email, $mdp) {
-            $requetePreparee = "SELECT * FROM `CompteClient` WHERE `emailClient` = :emailClient AND `mdpClient` = :mdpClient";
+        public static function connectWithId($idClient) {
+            $requetePreparee = "SELECT * FROM `CompteClient` WHERE `idClient` = :idClient";
             $res = static::$connexion->prepare($requetePreparee);
-            $tags = array(
-                "emailClient"=> $email,
-                "mdpClient"=> $mdp,
-            );
+            $tags = array("idClient"=> $idClient);
             $res->execute($tags);
             $resultat = $res->fetch(PDO::FETCH_ASSOC);
             if ($resultat == null) {
-                throw new Exception("Email ou mot de passe incorrect");
+                throw new Exception("Erreur lors de la connexion");
             }
 
             static::disconnect();
@@ -179,6 +230,26 @@
             $_SESSION['telClient'] = $resultat['telClient'];
             $_SESSION['photoDeProfil'] = $ROOT_PATH . (($resultat['urlPhotoProfilClient'] != "") ? $resultat['urlPhotoProfilClient'] : "/assets/images/profile_pictures/client/photoProfil_default.png");
             $_SESSION['ptsFideliteClient'] = $resultat['ptsFideliteClient'];
+
+            return $resultat;
+        }
+
+        public static function connect($email, $mdp) {
+            $requetePreparee = "SELECT `idClient` FROM `CompteClient` WHERE `emailClient` = :emailClient AND `mdpClient` = :mdpClient";
+            $res = static::$connexion->prepare($requetePreparee);
+            $tags = array(
+                "emailClient"=> $email,
+                "mdpClient"=> $mdp,
+            );
+
+            $res->execute($tags);
+            $resultat = $res->fetch(PDO::FETCH_ASSOC);
+            
+            if ($resultat == null) {
+                throw new Exception("Email ou mot de passe incorrect");
+            }
+
+            static::connectWithId($resultat['idClient']);
 
             return $resultat;
         }
