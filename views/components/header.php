@@ -12,21 +12,27 @@
             // If the user is connected, display his profile picture, his name and a button to access his account
             if (isset($_SESSION['idClient'])) {
                 // Buttons
+                echo "<div id='header-buttons'>";
                 echo "<a class='primary-button' href='$ROOT_URL/pages/account.php'>Mon compte</a>";
                 echo "<a class='secondary-button' href='$ROOT_URL/pages/logout.php'>Se déconnecter</a>";
-
+                echo "</div>";
+                
                 // Profile picture and name
+                echo "<div id='header-profile'>";
                 echo "<img " .
-                    "src='".$_SESSION['photoDeProfil']."' " .
-                    "alt='Photo de profil de ".$_SESSION['prenomClient']." ".$_SESSION['nomClient']."'".
+                "src='".$_SESSION['photoDeProfil']."' " .
+                "alt='Photo de profil de ".$_SESSION['prenomClient']." ".$_SESSION['nomClient']."'".
                 "'/>";
                 echo "<p>" . $_SESSION['prenomClient'] . " " . $_SESSION['nomClient'] . "</p>";
+                echo "</div>";
             }
             
             // If the user is not connected, display buttons to connect or create an account
             else {
+                echo "<div id='header-buttons'>";
                 echo "<a class='secondary-button' href='$ROOT_URL/pages/login.php'>Se connecter</a>";
                 echo "<a class='primary-button' href='$ROOT_URL/pages/signup.php'>Créer un compte</a>";
+                echo "</div>";
             }
         ?>
     </div>

@@ -1,40 +1,62 @@
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 10px;
-    height: 75px;
+    min-height: 75px;
     background-color: #000;
     color: #fff;
+    flex-wrap: wrap;
+}
+
+header #header-logo, header #header-account {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 header #header-logo {
-    /* float: left; */
     height: 40px;
     width: auto;
     margin-inline: 25px;
-    /* position: relative; */
-    /* top: 50%; */
-    /* transform: translateY(-50%); */
+    margin-block: 15px;
 }
 
 header #header-account {
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
     padding-inline: 25px;
 }
 
-header #header-account > button {
-    margin-inline: 5px;
+header #header-account #header-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
 }
 
-header #header-account img {
+header #header-account #header-buttons>* {
+    margin-block: 5px;
+    width: min(100%, 130px);
+}
+
+header #header-account #header-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+header #header-account #header-profile img {
     height: 40px;
     width: auto;
     border-radius: 20px;
     margin-inline: 10px;
 }
 
-header #header-account p {
+header #header-account #header-profile p {
     font-size: 20px;
 }
