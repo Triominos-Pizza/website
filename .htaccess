@@ -2,16 +2,16 @@ RewriteEngine On
 
 # Redirect to index if no file is specified
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ https://projets.iut-orsay.fr/triominos/index.php [L,R=301]
+RewriteRule ^(.*)$ http://%{SERVER_NAME}/pages/404.php
 
 # Disable directory browsing and Redirect to 404
 Options -Indexes
 RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^(.*)$ https://projets.iut-orsay.fr/triominos/pages/404.php [L,R=404]
+RewriteRule ^(.*)$ http://%{SERVER_NAME}/pages/404.php
 
 # Redirect 404 to a custom page
-ErrorDocument 404 https://projets.iut-orsay.fr/triominos/pages/404.php
-ErrorDocument 403 https://projets.iut-orsay.fr/triominos/
+ErrorDocument 404 http://%{SERVER_NAME}/pages/404.php
+ErrorDocument 403 http://%{SERVER_NAME}/pages/404.php
 
 # # Hide .php extension
 # RewriteCond %{REQUEST_FILENAME} !-f
