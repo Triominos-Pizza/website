@@ -12,6 +12,8 @@
   - [ ] Rentrer les informations de livraison
   - [ ] Paiement
   - [ ] Page de confirmation
+  - [ ] Refaire les include/require
+  - [ ] Enlever le CSS du HTML et le mettre dans un fichier CSS
 
 ## Optionnel (mais fortement conseillé)
 - [ ] Rendre la saisie du numéro de téléphone plus simple
