@@ -14,3 +14,14 @@ label:has(+ *:required)::after {
     content: " *";
     color: red;
 }
+
+/* invalid fields that are not :empty */
+input:invalid:not(:placeholder-shown) {
+    color: red;
+    border-color: red;
+}
+
+input:valid:not(:placeholder-shown) {
+    color: green;
+    border-color: green;
+}
