@@ -7,12 +7,17 @@
         <div class="footer__columns">
             <div class="footer__contact">
                 <h3>Contact</h3>
-                <p>Triomino's Pizza</p>
+                <p>
+                    <a href="https://github.com/AlexZeGamer">Alexandre MALFREYT</a>,
+                    <a href="https://github.com/AmauryMamo">Amaury TEYSSEDRE</a>,
+                    <a href="https://github.com/demba77">Demba TRAORE</a>
+                </p>
+
                 <a href="https://www.google.com/maps/place/Universit%C3%A9+Paris-Saclay+-+IUT+d'Orsay/">
-                    <p><adress>IUT D'Orsay<br>13 avenue des Sciences, 91190 Gif-sur-Yvette<br>France</adress></p>
+                    <p><adress>IUT D'Orsay, 13 avenue des Sciences<br>91190 Gif-sur-Yvette, France</adress></p>
                 </a>
                 <a href="tel:33169336000">
-                    <p><tel>+33 1 69 33 60 00</tel></p>
+                    <p><tel>+33 1 69 33 60 00</tel></p> <!-- Numéro de téléphone de l'IUT d'Orsay -->
                 </a>
             </div>
 
@@ -22,6 +27,7 @@
                     <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img src="<?=$ROOT_PATH?>/assets/images/icons/facebook.svg" alt="Icône de Facebook" /></a>
                     <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><img src="<?=$ROOT_PATH?>/assets/images/icons/instagram.svg" alt="Icône d'Instagram" /></a>
                     <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><img src="<?=$ROOT_PATH?>/assets/images/icons/twitter.svg" alt="Icône de Twitter" /></a>
+                    <a href="https://www.cacax.fun/users/657b216ab0248d407c1c17a2" target="_blank" rel="noopener noreferrer"><img src="https://www.cacax.fun/images/cacaxlogo.png" alt="Icône de Cacax" /></a>
                 </div>
             </div>
 
@@ -29,8 +35,8 @@
                 <div class="footer__links__links">
                     <h3>Liens</h3>
                     <a href="<?=$ROOT_PATH?>/index.php">Accueil</a>
-                    <a href="<?=$ROOT_PATH?>/products.php">Nos pizzas</a>
-                    <a href="<?=$ROOT_PATH?>/contact.php">Contact</a>
+                    <a href="<?=$ROOT_PATH?>/pages/products.php">Nos pizzas</a>
+                    <a href="<?=$ROOT_PATH?>/pages/contact.php">Contact</a>
                 </div>
                 <div class="footer__links__legal">
                     <h3>Légal</h3>
