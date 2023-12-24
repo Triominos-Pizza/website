@@ -12,8 +12,9 @@
   - [ ] Rentrer les informations de livraison
   - [ ] Paiement
   - [ ] Page de confirmation
-  - [ ] Refaire les include/require
-  - [ ] Enlever le CSS du HTML et le mettre dans un fichier CSS
+- [ ] Refaire les include/require
+- [ ] Enlever le CSS du HTML et le mettre dans un fichier CSS
+- [ ] Version "Borne" (juste mettre un paramètre dans l'URL pour activer la version borne et cacher les éléments inutiles (header, footer, ...))
 
 ## Optionnel (mais fortement conseillé)
 - [ ] Rendre la saisie du numéro de téléphone plus simple
