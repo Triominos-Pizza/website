@@ -1,20 +1,26 @@
 div.products-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    align-content: space-evenly;
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+    justify-items: center;
 }
 
-div.product {
+.product {
     border: 1px solid #ccc;
     margin: 10px;
     padding: 10px;
-    width: 200px;
-    height: auto;
-    /* float: left; */
-    text-align: center;
 }
 
-div.product img {
+.product::after {
+    content: 1fr;
+}
+
+.product h3, .product p {
+    margin: 0;
+    padding: 0;
+}
+
+.product img {
     width: 100%;
 }
