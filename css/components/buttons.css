@@ -80,3 +80,13 @@
     padding-block: 5px;
     font-size: 14px;
 }
+
+/* Remove left margin if the button is the first element of its row */
+.secondary-button:first-child, .primary-button:first-child {
+    margin-left: 0;
+}
+
+/* Remove right margin if the button is the last element of its row */
+.secondary-button:last-child, .primary-button:last-child {
+    margin-right: 0;
+}
