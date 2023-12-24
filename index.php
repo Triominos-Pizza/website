@@ -15,8 +15,10 @@
         
         <main style="background-image: url('<?= $ROOT_PATH ?>/assets/images/backgrounds/background-pizza.png');">
             <h1>Bienvenue chez Triomino's Pizza !</h1>
-            <p>La première chaine de pizzerias ouvertes dans des IUTs.</p>
-            <a class="primary-button large-button" href='<?= $ROOT_PATH ?>/pages/order.php'>Commander maintenant 🢂</a>
+            <p>La première chaine de pizzerias ouvertes dans des IUTs ! 🍕</p>
+            <div>
+                <a class="primary-button large-button" href='<?= $ROOT_PATH ?>/pages/order.php'>Commander maintenant 🢂</a>
+            </div>
         </main>
 
         <?php include("./views/components/footer.php"); ?>
