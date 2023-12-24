@@ -77,19 +77,28 @@
                 <div style="display: flex; justify-content: space-between; width: 100%;">
                     <div style="width: 48%;">
                         <label for="email">Adresse e-mail</label>
-                        <input type="text" name="email" placeholder="jean.dupont@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                        <input
+                            type="text" name="email" placeholder="jean.dupont@example.com"
+                            pattern="[^@]+@[^@]+\.[a-zA-Z]{2,}"
+                            title="Veuillez entrer une adresse e-mail valide"
+                            required
+                        >
                     </div>
                     
                     <div style="width: 48%;">
                         <label for="tel">Numéro de téléphone</label>
-                        <input type="tel" name="tel" placeholder="33612345678" pattern="[0-9]{11}" required>
+                        <input
+                            type="tel" name="tel" placeholder="33612345678"
+                            pattern="[0-9]{11}"
+                            title="Veuillez entrer un numéro de téléphone valide"
+                            required
+                        >
                     </div>
                 </div>
                 
                 <div style="display: flex; justify-content: space-between; width: 100%;">
                     <div style="width: 48%;">
                         <label for="mdp">Mot de passe</label>
-                        <!-- min 8 chars, min 1 digit, min 1 special char, min 1 accent -->
                         <input
                             type="password" name="mdp" placeholder="****************"
                             pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^\w\s]).{8,}"

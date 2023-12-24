@@ -68,7 +68,7 @@
                         $fields = array(
                             "prenomClient" => array("Prénom", null),
                             "nomClient" => array("Nom", null),
-                            "emailClient" => array("Email", "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"),
+                            "emailClient" => array("Email", "[^@]+@[^@]+\.[a-zA-Z]{2,}"),
                             "telClient" => array("Téléphone", "[0-9]{11}"),
                         );
 

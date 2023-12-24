@@ -34,7 +34,7 @@
                 <div style="display: flex; justify-content: space-between; width: 100%;">
                     <div style="width: 48%;">
                         <label for="email">Adresse e-mail</label>
-                        <input type="text" name="email" placeholder="Adresse e-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                        <input type="text" name="email" placeholder="Adresse e-mail" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,}" required>
                     </div>
 
                     <div style="width: 48%;">
