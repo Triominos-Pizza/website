@@ -24,9 +24,9 @@
             <div class="footer__social">
                 <h3>Réseaux sociaux</h3>
                 <div class="footer__social__icons">
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img src="<?=$ROOT_PATH?>/assets/images/icons/facebook.svg" alt="Icône de Facebook" /></a>
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><img src="<?=$ROOT_PATH?>/assets/images/icons/instagram.svg" alt="Icône d'Instagram" /></a>
-                    <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><img src="<?=$ROOT_PATH?>/assets/images/icons/twitter.svg" alt="Icône de Twitter" /></a>
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img src="<?=$ROOT_PATH?>/assets/images/icons/social/facebook.svg" alt="Icône de Facebook" /></a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><img src="<?=$ROOT_PATH?>/assets/images/icons/social/instagram.svg" alt="Icône d'Instagram" /></a>
+                    <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><img src="<?=$ROOT_PATH?>/assets/images/icons/social/twitter.svg" alt="Icône de Twitter" /></a>
                     <a href="https://www.cacax.fun/users/657b216ab0248d407c1c17a2" target="_blank" rel="noopener noreferrer"><img src="https://www.cacax.fun/images/cacaxlogo.png" alt="Icône de Cacax" /></a>
                 </div>
             </div>
