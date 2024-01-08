@@ -32,7 +32,12 @@
             <button class="secondary-button">Lorem ipsum dolor</button>
             <button class="secondary-button mini-button">Lorem ipsum dolor</button>
         </div>
-
+        <div>
+            <button class="danger-button large-button">Lorem ipsum dolor</button>
+            <button class="danger-button">Lorem ipsum dolor</button>
+            <button class="danger-button mini-button">Lorem ipsum dolor</button>
+        </div>
+            
         <h4>Disabled &#60;button&#62;</h4>
         <div>
             <button class="primary-button large-button" disabled>Lorem ipsum dolor</button>
@@ -44,18 +49,28 @@
             <button class="secondary-button" disabled>Lorem ipsum dolor</button>
             <button class="secondary-button mini-button" disabled>Lorem ipsum dolor</button>
         </div>
-        
+        <div>
+            <button class="danger-button large-button" disabled>Lorem ipsum dolor</button>
+            <button class="danger-button" disabled>Lorem ipsum dolor</button>
+            <button class="danger-button mini-button" disabled>Lorem ipsum dolor</button>
+        </div>
+            
         <h4>&#60;a&#62;</h4>
         <div>
             <a href="#" class="primary-button large-button">Lorem ipsum dolor</a>
             <a href="#" class="primary-button">Lorem ipsum dolor</a>
             <a href="#" class="primary-button mini-button">Lorem ipsum dolor</a>
         </div>
-        <div>
+            <div>
             <a href="#" class="secondary-button large-button">Lorem ipsum dolor</a>
             <a href="#" class="secondary-button">Lorem ipsum dolor</a>
             <a href="#" class="secondary-button mini-button">Lorem ipsum dolor</a>
         </div>
-
+        <div>
+            <a href="#" class="danger-button large-button">Lorem ipsum dolor</a>
+            <a href="#" class="danger-button">Lorem ipsum dolor</a>
+            <a href="#" class="danger-button mini-button">Lorem ipsum dolor</a>
+        </div>
+            
         
     </body>

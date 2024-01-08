@@ -1,7 +1,7 @@
 <?php
     (session_status() == PHP_SESSION_NONE) && session_start();
-    if (!isset($_SESSION['idClient'])) {
-        header("Location: $ROOT_URL/pages/login.php");
+    if (!isset($_SESSION['account']['idClient'])) {
+        header("Location: $ROOT_URL/pages/login.php?callback_url=".$_SERVER['REQUEST_URI']);
     }
 
     // Example of a session variable:

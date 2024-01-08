@@ -10,7 +10,7 @@
     <div id='header-account'>
         <?php
             // If the user is connected, display his profile picture, his name and a button to access his account
-            if (isset($_SESSION['idClient'])) {
+            if (isset($_SESSION['account']['idClient'])) {
                 // Buttons
                 echo "<div id='header-buttons'>";
                 echo "<a class='primary-button' href='$ROOT_URL/pages/account.php'>Mon compte</a>";
@@ -20,10 +20,10 @@
                 // Profile picture and name
                 echo "<a href='$ROOT_URL/pages/account.php' id='header-profile'>";
                 echo "<img " .
-                    "src='".$_SESSION['photoDeProfil']."' " .
-                    "alt='Photo de profil de ".$_SESSION['prenomClient']." ".$_SESSION['nomClient']."'".
+                    "src='".$_SESSION['account']['photoDeProfil']."' " .
+                    "alt='Photo de profil de ".$_SESSION['account']['prenomClient']." ".$_SESSION['account']['nomClient']."'".
                 "'/>";
-                echo "<p>" . $_SESSION['prenomClient'] . " " . $_SESSION['nomClient'] . "</p>";
+                echo "<p>" . $_SESSION['account']['prenomClient'] . " " . $_SESSION['account']['nomClient'] . "</p>";
                 echo "</a>";
             }
             

@@ -204,11 +204,13 @@
             $res->execute($tags);
         }
 
-        public static function deleteCompteClient($idClient) {
+        public static function deleteAccount($idClient) {
             $requetePreparee = "DELETE FROM `CompteClient` WHERE `idClient` = :idClient";
             $res = static::$connexion->prepare($requetePreparee);
             $tags = array("idClient"=> $idClient);
             $res->execute($tags);
+
+            static::disconnect();
         }
 
         public static function connectWithId($idClient) {
@@ -222,14 +224,14 @@
             }
 
             static::disconnect();
-            session_start();
-            $_SESSION['idClient'] = $resultat['idClient'];
-            $_SESSION['prenomClient'] = $resultat['prenomClient'];
-            $_SESSION['nomClient'] = $resultat['nomClient'];
-            $_SESSION['emailClient'] = $resultat['emailClient'];
-            $_SESSION['telClient'] = $resultat['telClient'];
-            $_SESSION['photoDeProfil'] = $ROOT_PATH . (($resultat['urlPhotoProfilClient'] != "") ? $resultat['urlPhotoProfilClient'] : "/assets/images/profile_pictures/client/photoProfil_default.png");
-            $_SESSION['ptsFideliteClient'] = $resultat['ptsFideliteClient'];
+            session_status()==PHP_SESSION_NONE ? session_start() : null;
+            $_SESSION['account']['idClient'] = $resultat['idClient'];
+            $_SESSION['account']['prenomClient'] = $resultat['prenomClient'];
+            $_SESSION['account']['nomClient'] = $resultat['nomClient'];
+            $_SESSION['account']['emailClient'] = $resultat['emailClient'];
+            $_SESSION['account']['telClient'] = $resultat['telClient'];
+            $_SESSION['account']['photoDeProfil'] = ROOT_PATH . (($resultat['urlPhotoProfilClient'] != "") ? $resultat['urlPhotoProfilClient'] : "/assets/images/profile_pictures/client/photoProfil_default.png");
+            $_SESSION['account']['ptsFideliteClient'] = $resultat['ptsFideliteClient'];
 
             return $resultat;
         }
@@ -256,8 +258,7 @@
 
         public static function disconnect() {
             session_status()==PHP_SESSION_NONE ? session_start() : null;
-            session_unset();
-            session_destroy();
+            unset($_SESSION['account']);
         }
     }
     

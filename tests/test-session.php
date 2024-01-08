@@ -91,6 +91,13 @@
         panier::delete($_GET['idProduitASupprimer']);
     }
 
+    // button "vider session"
+    echo "<h2>Vider la session</h2>";
+    echo "<button onclick='window.location.href=\"test-session.php?resetSession\"'>Reset la session</button><br>";
+    if (isset($_GET['resetSession'])) {
+        session_unset();
+    }
+
     // button "vider panier"
     echo "<h2>Vider le panier</h2>";
     echo "<button onclick='window.location.href=\"test-session.php?viderPanier\"'>Vider le panier</button><br>";
