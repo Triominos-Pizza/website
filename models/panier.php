@@ -14,11 +14,15 @@
             return $_SESSION['panier'];
         }
 
-        public static function empty() {
+        public static function set() {
             $_SESSION['panier'] = array(
                 "produits" => array(),
                 "menus" => array()
             );
+        }
+
+        public static function empty() {
+            static::set();
         }
         
         public static function getPos($produit) {
