@@ -1,7 +1,7 @@
 <?php (session_status() == PHP_SESSION_NONE) && session_start(); ?>
 <?php include_once('../config/config.php'); ?>
-<?php require_once("../scripts/check_maintenance.php"); ?>
-<?php require_once("../scripts/check_connection.php"); ?>
+<?php require_once("../scripts/php/check_maintenance.php"); ?>
+<?php require_once("../scripts/php/check_connection.php"); ?>
 
 <html>
     <?php
@@ -95,15 +95,29 @@
                 <div class="fields">
                     <div class="field">
                         <label for="old_password">Ancien mot de passe</label>
-                        <input type="password" name="old_password" id="old_password" required>
+                        <input
+                            type="password" name="old_password" id="old_password"
+                            placeholder="****************"
+                            required
+                        >
                     </div>
                     <div class="field">
                         <label for="new_password">Nouveau mot de passe</label>
-                        <input type="password" name="new_password" id="new_password" required>
+                        <input
+                            type="password" name="new_password" id="new_password"
+                            placeholder="****************"
+                            pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^\w\s]).{8,}"
+                            title="Le mot de passe doit contenir au moins 8 caractères, dont au moins une majuscule, une minuscule, un chiffre et un caractère spécial"
+                            required
+                        >
                     </div>
                     <div class="field">
                         <label for="new_password_confirm">Confirmer le nouveau mot de passe</label>
-                        <input type="password" name="new_password_confirm" id="new_password_confirm" required>
+                        <input
+                            type="password" name="new_password_confirm" id="new_password_confirm"
+                            placeholder="****************"
+                            required
+                        >
                     </div>
                 </div>
 
