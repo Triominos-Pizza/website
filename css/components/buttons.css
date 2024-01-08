@@ -9,6 +9,12 @@
     box-shadow: 0 0 0 2px #136990;
 }
 
+.danger-button {
+    background-color: #cc213c;
+    box-shadow: 0 0 0 2px red;
+    color: #ddd;
+}
+
 .primary-button:hover {
     background-color: #0b476e;
     color: #fff;
@@ -31,7 +37,18 @@
     text-shadow: 0 0 10px #136990;
 }
 
-.primary-button:disabled, .secondary-button:disabled {
+.danger-button:hover {
+    background-color: red;
+    color: #fff;
+}
+
+.danger-button:active {
+    background-color: red;
+    color: #fff;
+    text-shadow: 0 0 10px #cc213c;
+}
+
+.primary-button:disabled, .secondary-button:disabled, .danger-button:disabled {
     cursor: not-allowed;
 }
 
@@ -46,7 +63,13 @@
     box-shadow: 0 0 0 2px #5c7386;
 }
 
-.secondary-button, .primary-button {
+.danger-button:disabled {
+    color: #81535a;
+    background-color: #d1a1a8;
+    box-shadow: 0 0 0 2px #81535a;
+}
+
+.secondary-button, .primary-button, .danger-button {
     font-weight: 500;
     cursor: pointer;
     transition: 0.3s;
@@ -59,7 +82,7 @@
 }
 
 /* Default button size */
-.secondary-button, .primary-button {
+.secondary-button, .primary-button, .danger-button {
     padding-inline: 25px;
     padding-block: 10px;
     margin-inline: 5px;
@@ -69,24 +92,24 @@
     white-space: nowrap;
 }
 
-.secondary-button.large-button, .primary-button.large-button {
+.secondary-button.large-button, .primary-button.large-button, .danger-button.large-button {
     padding-inline: 30px;
     padding-block: 15px;
     font-size: 18px;
 }
 
-.secondary-button.mini-button, .primary-button.mini-button {
+.secondary-button.mini-button, .primary-button.mini-button, .danger-button.mini-button {
     padding-inline: 15px;
     padding-block: 5px;
     font-size: 14px;
 }
 
 /* Remove left margin if the button is the first element of its row */
-.secondary-button:first-child, .primary-button:first-child {
+.secondary-button:first-child, .primary-button:first-child, .danger-button:first-child {
     margin-left: 0;
 }
 
 /* Remove right margin if the button is the last element of its row */
-.secondary-button:last-child, .primary-button:last-child {
+.secondary-button:last-child, .primary-button:last-child, .danger-button:last-child {
     margin-right: 0;
 }

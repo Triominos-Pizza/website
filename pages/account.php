@@ -21,15 +21,25 @@
                     try {
                         switch ($_POST['form']) {
                             case 'update_profile_picture':
-                                $controllerCompteClient->uploadPhotoDeProfil($_SESSION['idClient'], $_FILES['profile_picture']);
+                                $controllerCompteClient->uploadPhotoDeProfil($_SESSION['account']['idClient'], $_FILES['profile_picture']);
                                 break;
                             
                             case 'update_account':
-                                $controllerCompteClient->updateAccount($_SESSION['idClient'], $_POST['prenomClient'], $_POST['nomClient'], $_POST['emailClient'], $_POST['telClient']);
+                                $controllerCompteClient->updateAccount($_SESSION['account']['idClient'], $_POST['prenomClient'], $_POST['nomClient'], $_POST['emailClient'], $_POST['telClient']);
                                 break;
         
                             case 'update_password':
-                                $controllerCompteClient->updatePassword($_SESSION['idClient'], $_POST['old_password'], $_POST['new_password'], $_POST['new_password_confirm']);
+                                $controllerCompteClient->updatePassword($_SESSION['account']['idClient'], $_POST['old_password'], $_POST['new_password'], $_POST['new_password_confirm']);
+                                break;
+
+                            case 'delete_account':
+                                $controllerCompteClient->deleteAccount($_SESSION['account']['idClient']);
+
+                                // Open a popup to confirm the account deletion
+                                echo "<script type='text/javascript'>";
+                                echo "alert('Compte supprimé avec succès');";
+                                echo "window.location.href = '$ROOT_PATH/index.php';";
+                                echo "</script>";
                                 break;
                         }
         
@@ -52,11 +62,11 @@
 
             <h2>Photo de profil</h2>
             <form action="./account.php" method="post" enctype="multipart/form-data">
-                <img src="<?= $ROOT_PATH . $_SESSION['photoDeProfil'] ?>" alt="Photo de profil" class="profile-picture-img">
+                <img src="<?= $ROOT_PATH . $_SESSION['account']['photoDeProfil'] ?>" alt="Photo de profil" class="profile-picture-img">
                 <div>
                     <input type="hidden" name="form" value="update_profile_picture">
                     <input type="file" name="profile_picture" id="profile_picture" accept="image/png, image/jpeg, image/jpg" required disabled>
-                    <input type="submit" value="Modifier" disabled>
+                    <input type="submit" class="primary-button" value="Modifier" disabled>
                 </div>
             </form>
 
@@ -75,7 +85,7 @@
                         foreach ($fields as $field => $array) {
                             $label = $array[0];
                             $pattern = $array[1] ?? ".*";
-                            $val = $_SESSION[$field];
+                            $val = $_SESSION['account'][$field];
 
                             echo "<div class='field'>";
                             echo "<label for='$field'>$label</label>";
@@ -85,7 +95,7 @@
                     ?>
                 </div>
 
-                <input type="submit" value="Modifier">
+                <input type="submit" class="primary-button" value="Modifier">
             </form>
 
 
@@ -121,7 +131,13 @@
                     </div>
                 </div>
 
-                <input type="submit" value="Modifier">
+                <input type="submit" class="primary-button" value="Modifier">
+            </form>
+
+            <h2>Supprimer le compte</h2>
+            <form action="./account.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="form" value="delete_account">
+                <input type="submit" class="danger-button" value="Supprimer le compte (irréversible)">
             </form>
         </main>
 
