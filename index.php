@@ -2,7 +2,7 @@
 <?php include_once('./config/config.php'); ?>
 <?php require_once("./config/db.php"); ?>
 
-<?php require_once("./scripts/check_maintenance.php"); ?>
+<?php require_once("./scripts/php/check_maintenance.php"); ?>
 
 <html>
     <?php
