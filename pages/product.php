@@ -1,25 +1,49 @@
 <?php session_start(); ?>
 <?php include_once('../config/config.php'); ?>
-<?php require_once("../scripts/check_maintenance.php"); ?>
+<?php require_once("../scripts/php/check_maintenance.php"); ?>
 
 <html>
+    <!-- Imports -->
     <?php
-        require_once("../controllers/controllerProduit.php");
-        $controllerProduit = new controllerProduit();
-        $produit = $controllerProduit->getProduit($_GET['id']);
-        $title = "Produit (" . $produit->nomProduit . ")";
-        include_once("../views/components/head.php");
+        include("../controllers/controllerProduit.php");
+        include("../controllers/controllerPanier.php");
     ?>
+    
+    <?php
+        // Set the page title
+        try {
+            if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+                $controllerProduit = new controllerProduit();
+                $produit = $controllerProduit->getProduit($_GET['id']);
+                $title = "Produit (" . $produit->nomProduit . ")";
+            } else {
+                $title = "Produit introuvable";
+            }    
+        } catch (Exception $e) {
+            $title = "Produit introuvable";
+        }    
+
+        include_once("../views/components/head.php");
+    ?>    
     
     <body>
         <?php include("../views/components/header.php"); ?>
         
-        <main>
-            <script>document.write('<a href="' + document.referrer + '">↩ Retour</a>');</script>
-
+        <main class="product-page">
+            <!-- Show the product details -->
             <?php
-                $controllerProduit = new controllerProduit();
-                $controllerProduit->showProduitDetails($_GET['id']);
+                if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+                    $controllerProduit = new controllerProduit();
+                    $controllerProduit->showProduitDetails($_GET['id']);
+                } else {
+                    echo "<div class='error-message'>Aucun produit sélectionné</div>";
+                }
+            ?>
+
+            <!-- Show the shopping cart -->
+            <?php
+                $controllerPanier = new controllerPanier();
+                $controllerPanier->showPanier();
             ?>
         </main>
 

@@ -1,0 +1,73 @@
+.panier {
+    background-color: #ddd;
+    color: #000;
+
+    padding-inline: 20px;
+    padding-block: 20px;
+    width: 400px;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+    .panier {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
+
+.panier ul {
+    list-style-type: none;
+    padding-inline: 0;
+    padding-block: 0;
+}
+
+.panier ul li.panier-produit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: top;
+    margin-bottom: 10px;
+}
+
+.panier ul li.panier-produit .panier-produit-image img {
+    width: 75px;
+    border-radius: 10px;
+}
+
+.panier ul li.panier-produit .panier-produit-infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 10px;
+    width: 100%;
+}
+
+.panier ul li.panier-produit .panier-produit-infos .panier-produit-nom {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.panier ul li.panier-produit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: top;
+    margin-bottom: 10px;
+}
+
+.panier ul li.panier-produit a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.panier .panier-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}

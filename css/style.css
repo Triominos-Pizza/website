@@ -8,11 +8,13 @@
 @import "./components/inputs.css";
 @import "./components/tables.css";
 @import "./components/error.css";
+@import "./components/panier.css";
 
 /* Specific pages */
 @import "./pages/index.css";
 @import "./pages/maintenance.css";
 @import "./pages/order.css";
+@import "./pages/product.css";
 @import "./pages/account.css";
 
 /* import google font */

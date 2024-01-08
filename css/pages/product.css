@@ -1,0 +1,178 @@
+main.product-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: top;
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-basis: auto;
+    /* width: min(100%, 850px); */
+    width: 100%;
+    margin-right: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+    main.product-page {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .page-content {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+
+/* Categories */
+.categories {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.categories>h4 {
+    margin: 0;
+    padding: 0;
+    margin-right: 10px;
+    width: fit-content;
+    white-space: nowrap;
+}
+
+a.categorie {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 0;
+    margin-right: 10px;
+    padding-block: 5px;
+    padding-inline: 10px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Product info */
+.product-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.product-info>img {
+    width: min(100%, 400px);
+    height: fit-content;
+    border-radius: 10px;
+}
+
+.product-info>.product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: fit-content;
+    margin-left: 20px;
+    flex-basis: auto;
+}
+
+.product-info>.product-details>.product-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    width: fit-content;
+}
+
+.product-info>.product-details>.product-description>* {
+    margin-bottom: 25px;
+}
+
+.product-form-submit>.product-buy {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.product-form-submit>.product-buy>.primary-button {
+    white-space: wrap;
+}
+
+.product-form-submit>.product-buy>.product-price {
+    margin-left: 20px;
+    margin-block: 0;
+}
+
+@media screen and (max-width: 1350px) {
+    .product-info {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: min(100%, 550px);
+        margin-inline: auto;
+    }
+
+    .product-info>img {
+        width: min(100%, 550px);
+        margin-bottom: 20px;
+    }
+
+    .product-info>.product-details {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .product-info>.product-details>.product-description {
+        width: 100%;
+        align-items: flex-start;
+    }
+}
+
+/* Ingredients & Allergens */
+.ingredients, .allergenes {
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    justify-content: left;
+    align-items: center;
+    align-content: flex-start;
+}
+
+.ingredients h4, .allergenes h4 {
+    width: fit-content;
+    white-space: nowrap;
+}
+
+.ingredient, .allergene {
+    display: inline-block;
+    margin-inline: 5px;
+}
+
+.ingredient img, .allergene img {
+    width: 60px;
+}
+
+.ingredient p, .allergene p {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 850px) {
+    .ingredients, .allergenes {
+        flex-direction: column;
+        width: 100%;
+    }
+}
