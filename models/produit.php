@@ -9,6 +9,7 @@
         public string $nomProduit;
         public float $prixProduit;
         public string $urlImageProduit;
+        public bool $estProduitDuMoment;
 
         public array $categories = array();
         public array $ingredients = array();
@@ -25,6 +26,7 @@
                 $this->nomProduit = $infos["nomProduit"];
                 $this->prixProduit = $infos["prixProduit"];
                 $this->urlImageProduit = $infos["urlImageProduit"];
+                $this->estProduitDuMoment = $infos["estProduitDuMoment"];
 
                 $this->categories = static::getCategoriesFromId($id);
                 $this->ingredients = static::getIngredientsFromId($id);

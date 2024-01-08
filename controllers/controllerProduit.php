@@ -10,6 +10,7 @@ class controllerProduit extends controllerObjet {
         public static function showProduitsGrid($categorie=null) {
             $produits = produit::getAllProduits($categorie);
 
+            // S'il n'y a aucun produit, afficher un message d'erreur
             if (count($produits) == 0) {
                 echo "<div class='error-message' style='margin-block: 20vh;'>";
                 echo "Aucun produit trouvé";
@@ -17,11 +18,25 @@ class controllerProduit extends controllerObjet {
                 return;
             }
 
+            // Déplacer le(s) produit(s) du moment au début
+            $produitsDuMoment = array();
+            foreach ($produits as $key => $produit) {
+                if ($produit->estProduitDuMoment) {
+                    $produitsDuMoment[] = $produit;
+                    unset($produits[$key]);
+                }
+            }
+            $produits = $produitsDuMoment + $produits;
+
+            // Afficher la grille
             echo "<div class='products-grid'>";
             foreach ($produits as $produit) {
-                echo "<div class='product' onclick='window.location.href=\"product.php?id=$produit->idFicheProduit\"'>";
+                echo "<div class='product". ($produit->estProduitDuMoment ? ' produitdumoment' : '') ."' onclick='window.location.href=\"product.php?id=$produit->idFicheProduit\"'>";
                 echo "<img src='" . ROOT_PATH . "$produit->urlImageProduit' alt='$produit->nomProduit' />";
                 echo "<h3>$produit->nomProduit</h3>";
+                if ($produit->estProduitDuMoment) {
+                    echo "<p class='produitdumoment-label'>Produit du moment</p>";
+                }
                 echo "<p>$produit->prixProduit €</p>";
                 echo "<a href='product.php?id=$produit->idFicheProduit'>Voir le produit</a>";
                 echo "</div>";
@@ -42,7 +57,13 @@ class controllerProduit extends controllerObjet {
                 
                 echo "<script>document.write('<a href=\'' + document.referrer + '\'>↩ Retour</a>');</script>";
                 
-                echo "<h1>$produit->nomProduit</h1>";
+                echo "<div class='product-title'>";
+                    echo "<h1>$produit->nomProduit</h1>";
+                    if ($produit->estProduitDuMoment) {
+                        echo "<p class='produitdumoment-label'>Produit du moment</p>";
+                    }
+                echo "</div>";
+
                 echo "<div class='product-info'>";
                     echo "<img src='" . ROOT_PATH . "$produit->urlImageProduit' alt='$produit->nomProduit' />";
                     echo "<div class='product-details'>";

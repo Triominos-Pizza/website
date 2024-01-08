@@ -17,6 +17,16 @@ main.order-page {
     margin-bottom: 0;
 }
 
+.product h3, .product p {
+    margin: 0;
+    padding: 0;
+}
+
+.product img {
+    width: 100%;
+    border-radius: 10px;
+}
+
 div.products-grid {
     display: grid;
     justify-content: space-evenly;
@@ -32,7 +42,6 @@ div.products-grid {
     margin: 5px;
     padding: 15px;
     border-radius: 20px;
-    height: fit-content;
 
     transition: all 0.3s ease;
 }
@@ -43,12 +52,22 @@ div.products-grid {
     background-color: #eee;
 }
 
-.product h3, .product p {
-    margin: 0;
-    padding: 0;
+.product.produitdumoment {
+    border: solid 1px #cc213c;
+    background-color: #feeeee;
+    height: 1em;
+    margin-block: auto;
 }
 
-.product img {
-    width: 100%;
-    border-radius: 10px;
+.product.produitdumoment:hover {
+    box-shadow: 7px 7px 1px #cc213c;
+    background-color: #eee;
+}
+
+.product.produitdumoment p.produitdumoment-label {
+    background-color: #cc213c;
+    color: white;
+    border-radius: 0 0 0 20px;
+    text-align: right;
+    padding-right: 10px;
 }
