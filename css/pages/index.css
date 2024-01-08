@@ -21,8 +21,8 @@ body.page-accueil main {
 @media screen and (max-width: 650px) {
     body.page-accueil main {
         height: auto;
-        padding-top: 100px;
-        padding-bottom: 150px;
+        padding-top: 200px;
+        padding-bottom: 250px;
     }
 }
 

@@ -35,7 +35,6 @@
             static::connect();
             $table = $table ?? static::$classe;
             
-            // static::connect();
             $requete = "SELECT * FROM " . $table;
             $res = static::$connexion->query($requete);
             
@@ -48,9 +47,9 @@
             if ($id == null) {
                 throw new ArgumentCountError("L'identifiant doit être renseigné.");
             }
-        static::connect();
 
-        $table = $table ?? static::$classe;
+            static::connect();
+            $table = $table ?? static::$classe;
             
             $identifiant = static::$identifiant;
             $requetePreparee = "SELECT * FROM $table WHERE $identifiant = :id;";
@@ -66,8 +65,7 @@
                 }
                 return $elem;
             } catch (PDOException $e) {
-                echo "Erreur lors de la requête SQL : <br />";
-                echo $e->getMessage();
+                throw new Exception("Erreur lors de la requête SQL : <br />" . $e->getMessage());
             }
         }
 
@@ -78,6 +76,7 @@
 
             static::connect();
             $table = $table ?? static::$classe;
+
             $identifiant = static::$identifiant;
             $requetePreparee = "DELETE FROM $table WHERE $identifiant = :id;";
             $resultat = static::$connexion->prepare($requetePreparee);
@@ -85,8 +84,7 @@
             try {
                 $resultat->execute($tags);
             } catch (PDOException $e) {
-                echo "Erreur lors de la requête SQL : <br />";
-                echo $e->getMessage();
+                throw new Exception("Erreur lors de la requête SQL : <br />" . $e->getMessage());
             }
         }
 

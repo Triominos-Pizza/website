@@ -16,12 +16,12 @@ label:has(+ *:required)::after {
 }
 
 /* invalid fields that are not :empty */
-input:invalid:not(:placeholder-shown) {
+input:invalid:not(:placeholder-shown):not([type=submit]) {
     color: red;
     border-color: red;
 }
 
-input:valid:not(:placeholder-shown) {
+input:valid:not(:placeholder-shown):not([type=submit]) {
     color: green;
     border-color: green;
 }
