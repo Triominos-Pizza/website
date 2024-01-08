@@ -22,10 +22,12 @@
 - [ ] Mettre le lien Github dans le footer
 - [ ] Remplacer des ROOT_PATH par des ROOT_URL (partout ? ou juste dans les liens ?)
 - [ ] Valider les champs des formulaires en back-end (au niveau de PHP et/ou de la BDD)
+- [ ] Déplacer les CSS spécifiques à une page dans le head de la page (et non dans le fichier CSS global)
 
 ## Optionnel (mais fortement conseillé)
 - [ ] Rendre la saisie du numéro de téléphone plus simple
 - [ ] Rendre la saisie de l'adresse plus simple (utiliser l'API du gouvernement : https://geo.api.gouv.fr/adresse)
+- [ ] Mettre les couleurs (et autres ?) dans des variables CSS
 
 ## Facultatif
 - [ ] Faire une PWA
@@ -34,3 +36,5 @@
 - [ ] Faire en sorte que les images ne s'affichent qu'une fois qu'elles sont chargées
   - [ ] Faire un placeholder pour les images pendant le chargement
   - [ ] Faire un système de cache pour les images ?
+- [ ] Faire une popup pour les cookies ? 😂
+- [ ] Mettre des images par défaut pour tous les modèles qui utilisent des images (produits, menus, ...)
