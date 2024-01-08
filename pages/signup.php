@@ -46,7 +46,7 @@
                         // Open a popup to confirm the account creation
                         echo "<script type='text/javascript'>";
                         echo "alert('Compte créé avec succès');";
-                        echo "window.location.href = '$ROOT_PATH/pages/login.php';";
+                        echo "window.location.href = '$ROOT_PATH/pages/login.php" . (isset($_GET['callback_url']) ? '?callback_url=' . $_GET['callback_url'] : '') . "';";
                         echo "</script>";
                     } catch (Exception $e) {
                         echo "<div class='error-message'>";
@@ -56,7 +56,7 @@
                 }
             ?>
 
-            <form action="./signup.php" method="post" enctype="multipart/form-data">
+            <form action="./signup.php<?= (isset($_GET['callback_url']) ? '?callback_url=' . $_GET['callback_url'] : '') ?>" method="post" enctype="multipart/form-data">
                 <h1>Créer un compte</h1>
 
                 <label for="urlPhotoProfil">Photo de profil</label>
@@ -118,7 +118,13 @@
 
                 <hr style="margin-block: 2rem;">
 
-                <p>Déjà client ? <button class="secondary-button mini-button" onclick="window.location.href='<?=$ROOT_PATH?>/pages/login.php'">Se connecter</button></p>
+                <p>
+                    Déjà client ?
+                    <button
+                        class="secondary-button mini-button"
+                        onclick="window.location.href='<?=$ROOT_PATH?>/pages/login.php<?= (isset($_GET['callback_url']) ? '?callback_url=' . $_GET['callback_url'] : '') ?>'"
+                    >Se connecter</button>
+                </p>
             </form>
         </main>
 

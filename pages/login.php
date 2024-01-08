@@ -20,15 +20,23 @@
                     $password = $_POST['password'];
                     
                     try {
+                        // connexion
                         $compteClient = $controllerCompteClient->connect($email, hash('sha256', $password));
+
+                        // redirection (à un URL prédéfini dans l'URL le cas échéant, à l'accueil sinon)
+                        if (isset($_GET['callback_url'])) {
+                            header("Location: " . ROOT_URL . $_GET['callback_url']);
+                            exit();
+                        }
                         header("Location: $ROOT_PATH/index.php");
+                        exit();
                     } catch (Exception $e) {
                         echo "<div class='error-message'>" . $e->getMessage() . "</div>";
                     }
                 }
             ?>
 
-            <form method="post" action="./login.php">
+            <form method="post" action=<?= "./login.php" . (isset($_GET['callback_url']) ? "?callback_url=".$_GET['callback_url'] : "") ?>>
                 <h1>Connexion</h1>
 
                 <div style="display: flex; justify-content: space-between; width: 100%;">
@@ -49,8 +57,19 @@
             <hr style="margin-block: 2rem;">
 
             <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
-                <p>Nouveau client ? <button class="secondary-button mini-button" onclick="window.location.href='<?=$ROOT_PATH?>/pages/signup.php'">Créer un compte</button></p>
-                <button class="secondary-button mini-button" onclick="window.location.href='<?=$ROOT_PATH?>/pages/forgot-password.php'">Mot de passe oublié ?</button>
+                <p>
+                    Nouveau client ?
+                    <button
+                        class="secondary-button mini-button"
+                        onclick="window.location.href='<?=$ROOT_PATH?>/pages/signup.php<?= (isset($_GET['callback_url']) ? '?callback_url=' . $_GET['callback_url'] : '') ?>'">
+                            Créer un compte
+                    </button>
+                </p>
+                <button
+                    class="secondary-button mini-button"
+                    onclick="window.location.href='<?=$ROOT_PATH?>/pages/forgot-password.php<?= (isset($_GET['callback_url']) ? '?callback_url=' . $_GET['callback_url'] : '') ?>'">
+                        Mot de passe oublié ?
+                </button>
             </div>
         </main>
 
