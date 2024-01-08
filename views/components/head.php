@@ -14,4 +14,12 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_FR" />
     <meta name="theme-color" content="#136990">
+
+    <script src="<?= $ROOT_PATH ?>/scripts/js/konami.js"></script>
+    <script src="<?= $ROOT_PATH ?>/scripts/js/noe.js"></script>
+    <script>
+    var easter_egg = new Konami(function() { 
+        noe(document.body);
+    });
+    </script>
 </head>
