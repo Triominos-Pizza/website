@@ -27,7 +27,7 @@
                     <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><img src="<?=$ROOT_PATH?>/assets/images/icons/social/facebook.svg" alt="Icône de Facebook" /></a>
                     <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><img src="<?=$ROOT_PATH?>/assets/images/icons/social/instagram.svg" alt="Icône d'Instagram" /></a>
                     <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><img src="<?=$ROOT_PATH?>/assets/images/icons/social/twitter.svg" alt="Icône de Twitter" /></a>
-                    <a href="https://www.cacax.fun/users/657b216ab0248d407c1c17a2" target="_blank" rel="noopener noreferrer"><img src="https://www.cacax.fun/images/cacaxlogo.png" alt="Icône de Cacax" /></a>
+                    <a href="https://www.cacax.fun/users/657b216ab0248d407c1c17a2" target="_blank" rel="noopener noreferrer"><img src="/assets/images/icons/social/cacax.png" alt="Icône de Cacax" /></a>
                 </div>
             </div>
 
