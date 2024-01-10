@@ -27,11 +27,7 @@
         
         public static function getPos($produit) {
             for ($i=0; $i < count($_SESSION['panier']['produits']); $i++) {
-                echo "getPos()<br />";
-                echo "i = " . $i . "<br />";
-                echo "idFicheProduit = " . $_SESSION['panier']['produits'][$i]['produit']->idFicheProduit . "<br />";
-                if ($_SESSION['panier']['produits'][$i]['produit']->idFicheProduit == $produit->idFicheProduit) {
-                    echo "found<br />";
+                if ($_SESSION['panier']['produits'][$i]['produit'] == $produit) {
                     return $i;
                 }
             }
@@ -39,9 +35,7 @@
         }
 
         public static function get($produit) {
-            echo "get()<br />";
             $pos = static::getPos($produit);
-            echo "pos = " . $pos . "<br />";
             if ($pos !== false) {
                 return $_SESSION['panier']['produits'][$pos];
             } else {
@@ -56,13 +50,11 @@
         }
 
         public static function addProduit($produit, $quantite = 1) {
-            echo "addProduit()<br />";
+            if ($quantite < 1) return;
             if (static::getPos($produit) !== false) {
-                echo "1<br />";
                 $pos = static::getPos($produit);
                 $_SESSION['panier']['produits'][$pos]['quantite'] += $quantite;
             } else {
-                echo "2<br />";
                 $_SESSION['panier']['produits'][] = array(
                     "produit" => $produit,
                     "quantite" => $quantite
@@ -72,7 +64,6 @@
 
         public static function addMenu($id, $nom, $prix) {
             if (isset($_SESSION['panier']['menus'][$id])) {
-                // using get() method
                 $menu = static::get($id);
                 $menu['quantite'] += 1;
             } else {
@@ -87,9 +78,9 @@
         public static function getTotal() {
             $total = 0;
             foreach ($_SESSION['panier']['produits'] as $produit) {
-                $total += $produit['produit']->prixProduit * $produit['quantite'];
+                $total += $produit['produit']->getPrixStr() * $produit['quantite'];
             }
-            return $total;
+            return sprintf("%0.2f", $total);
         }
     }
 ?>

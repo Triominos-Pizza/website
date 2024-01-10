@@ -17,19 +17,21 @@
 
 @media screen and (max-width: 1000px) {
     .panier {
-        width: 100%;
+        width: calc(100% - min(50px, 5%));
         margin-left: 0;
         margin-top: 20px;
     }
 }
 
-.panier ul {
+
+/* LISTE PRODUITS */
+.panier ul.panier-liste {
     list-style-type: none;
     padding-inline: 0;
     padding-block: 0;
 }
 
-.panier ul li.panier-produit {
+.panier ul.panier-liste li.panier-produit {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -37,17 +39,17 @@
     margin-bottom: 20px;
 }
 
-.panier ul li.panier-produit:is(:last-child) {
+.panier ul.panier-liste li.panier-produit:is(:last-child) {
     margin-bottom: 0;
 }
 
-.panier ul li.panier-produit .panier-produit-image img {
+.panier ul.panier-liste li.panier-produit .panier-produit-image img {
     width: 75px;
     border-radius: 10px;
     box-shadow: -2px 2px 3px 1px #bbb;
 }
 
-.panier ul li.panier-produit .panier-produit-infos {
+.panier ul.panier-liste li.panier-produit .panier-produit-infos {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,18 +58,79 @@
     width: 100%;
 }
 
-.panier ul li.panier-produit .panier-produit-infos .panier-produit-nom {
+.panier ul.panier-liste li.panier-produit .panier-produit-infos .panier-produit-nom {
     font-size: 1.2rem;
     font-weight: 500;
 }
 
-.panier ul li.panier-produit a {
+.panier ul.panier-liste li.panier-produit a {
     text-decoration: none;
     color: #fff;
     font-size: 1.2rem;
 }
 
 
+/* SUPPLEMENTS */
+.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-supplements,
+.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-ingredients-ajoutes,
+.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-ingredients-retires {
+    font-size: 0.9rem;
+    font-weight: 300;
+    margin-block: 5px;
+    padding-left: 25px;
+}
+
+.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-supplements li,
+.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-ingredients-ajoutes li,
+.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-ingredients-retires li {
+    margin-block: -8px;
+}
+
+.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-supplements {
+    list-style-type: square;
+}
+
+.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-ingredients-ajoutes {
+    list-style-type: "＋ ";
+    color: #090;
+}
+
+.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-ingredients-retires {
+    list-style-type: "－ ";
+    color: #D00;
+}
+
+.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-ingredients-ajoutes:not(:empty),
+.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-ingredients-retires:not(:empty) {
+    margin-top: 10px;
+}
+
+.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-ingredients-ajoutes:empty,
+.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-ingredients-retires:empty {
+    display: none;
+}
+
+
+/* TOTAL */
+.panier div.panier-total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.panier h3.total {
+    width: fit-content;
+    margin-right: 20px;
+}
+
+.panier p.price {
+    width: fit-content;
+}
+
+
+/* ACTIONS */
 .panier .panier-actions form {
     width: 100%;
 }

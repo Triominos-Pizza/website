@@ -12,7 +12,6 @@
         public bool $estProduitDuMoment;
 
         public array $categories = array();
-        public array $ingredients = array();
         public array $allergenes = array();
 
         // Constructeur
@@ -29,7 +28,6 @@
                 $this->estProduitDuMoment = $infos["estProduitDuMoment"];
 
                 $this->categories = static::getCategoriesFromId($id);
-                $this->ingredients = static::getIngredientsFromId($id);
                 $this->allergenes = static::getAllergenesFromId($id);
             }
         }
@@ -38,10 +36,10 @@
         public function getId() { return $this->idFicheProduit; }
 
         public function getPrix() { return $this->prixProduit; }
+        public function getPrixStr() { return sprintf("%0.2f", $this->prixProduit); }
         public function getNom() { return $this->nomProduit; }
         public function getUrlImage() { return $this->urlImageProduit; }
         public function getCategories() { return $this->categories; }
-        public function getIngredients() { return $this->ingredients; }
         public function getAllergenes() { return $this->allergenes; }
 
         public static function isPizza($id) {
@@ -49,7 +47,7 @@
             static::connect();
             $requetePreparee = "
                 SELECT isPizza(:id) as isPizza
-                FROM dual
+                FROM FicheProduit
             ";
             $resultat = static::$connexion->prepare($requetePreparee);
             $tags = array(':id' => $id);
@@ -125,9 +123,11 @@
         public static function getProduitFromId($id) {
             require_once("../models/pizza.php");
             if (static::isPizza($id)) {
-                $produit = pizza::getOne($id, "FicheProduit");
+                // $produit = pizza::getOne($id, "FicheProduit");
+                $produit = new pizza($id);
             } else {
-                $produit = static::getOne($id, "FicheProduit");
+                // $produit = static::getOne($id, "FicheProduit");
+                $produit = new produit($id);
             }
             return $produit;
         }
@@ -147,26 +147,6 @@
                 $resultat->execute($tags);
                 $categories = $resultat->fetchAll();
                 return $categories;
-            } catch (PDOException $e) {
-                throw new Exception("Erreur lors de la requête SQL : <br />" . $e->getMessage());
-            }
-        }
-
-        public static function getIngredientsFromId($id) {
-            static::connect();
-            $requetePreparee = "
-                SELECT *
-                FROM Ingredient
-                INNER JOIN IngredientFicheProduit
-                ON Ingredient.idIngredient = IngredientFicheProduit.idIngredient
-                WHERE IngredientFicheProduit.idFicheProduit = :id
-            ";
-            $resultat = static::$connexion->prepare($requetePreparee);
-            $tags = array(':id' => $id);
-            try {
-                $resultat->execute($tags);
-                $ingredients = $resultat->fetchAll();
-                return $ingredients;
             } catch (PDOException $e) {
                 throw new Exception("Erreur lors de la requête SQL : <br />" . $e->getMessage());
             }

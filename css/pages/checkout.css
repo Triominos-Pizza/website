@@ -1,0 +1,29 @@
+main.checkout-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: top;
+}
+
+.checkout-page .panier {
+    margin-left: 0;
+    margin-right: 40px;
+    min-width: 400px;
+}
+
+@media screen and (max-width: 1000px) {
+    main.checkout-page {
+        flex-direction: column-reverse
+    }
+
+    .checkout-page .panier {
+        min-width: 300px;
+        width: calc(100% - 40px);
+        margin-inline: 0;
+    }
+}
+
+
+.checkout-page .paiement-form {
+    width: 100%;
+}
