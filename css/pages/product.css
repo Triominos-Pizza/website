@@ -1,43 +1,50 @@
+
 main.product-page {
+    padding-top: 20;
+}
+
+.product-page-main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: top;
 }
 
-.page-content {
+.product-page-main .page-content {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    flex-basis: auto;
-    /* width: min(100%, 850px); */
     width: 100%;
     margin-right: 20px;
 }
 
 @media screen and (max-width: 1000px) {
-    main.product-page {
+    .product-page-main {
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
 
-    .page-content {
+    .product-page-main .page-content {
         width: 100%;
         margin-right: 0;
     }
 }
 
 
-/* Categories */
+/* Header */
+.product-page-header {
+    margin-block: 30px;
+    width: 100%;
+}
+
 .categories {
     display: flex;
     justify-content: left;
     align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .categories>h4 {
@@ -61,12 +68,19 @@ a.categorie {
     text-decoration: none;
 }
 
+
 /* Product info */
 .product-title {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+.product-title h1 {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
 }
 
 .product-title p.produitdumoment-label {
@@ -91,50 +105,235 @@ a.categorie {
     justify-content: flex-start;
     margin-top: 20px;
     margin-bottom: 20px;
+    width: 100%;
 }
 
-.product-info>img {
+.product-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-basis: auto;
+    max-width: min(100%, 400px);
+    margin-right: 20px;
+}
+
+@media screen and (max-width: 1350px) {
+    .product-left {
+        max-width: 100%;
+        margin-right: 0;
+    }
+}
+
+.product-left .allergenes {
+    width: fit-content;
+    margin-top: 20px;
+}
+
+.product-img {
     width: min(100%, 400px);
     height: fit-content;
     border-radius: 10px;
+    box-shadow: -2px 2px 3px 1px #bbb;
 }
 
 .product-info>.product-details {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: fit-content;
-    margin-left: 20px;
+    margin-left: 40px;
     flex-basis: auto;
+    width: 100%;
+    container-name: form;
+    container-type: inline-size;
+    justify-content: flex-start;
 }
 
-.product-info>.product-details>.product-description {
+.product-form-taille,
+.product-form-pate,
+.product-form-sauce,
+.product-form-quantite {
     display: flex;
     flex-direction: column;
-    justify-content: top;
-    width: fit-content;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.product-info>.product-details>.product-description>* {
-    margin-bottom: 25px;
+@container form (min-width: 500px) {
+
+    .product-form-taille,
+    .product-form-pate,
+    .product-form-sauce,
+    .product-form-quantite {
+        justify-content: flex-start;
+    }
 }
 
-.product-form-submit>.product-buy {
+.product-form-taille-input,
+.product-form-pate-input,
+.product-form-sauce-input,
+.product-form-quantite-input {
+    width: min(100%, 400px);
+}
+
+/* Chrome, Safari, Edge, Opera */
+.product-form-quantite-input input::-webkit-outer-spin-button,
+.product-form-quantite-input input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.product-form-quantite-input input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.product-form label {
+    width: 60px;
+    min-width: fit-content;
+    margin-right: 10px;
+}
+
+.product-form-quantite-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.product-form-quantite-input input {
+    width: max(50px, 85%);
+}
+
+.product-form-quantite-input button {
+    padding: 0 !important;
+    min-width: 33px !important;
+    height: 33px !important;
+    font-size: 20 !important;
+    font-weight: bolder;
+    vertical-align: baseline;
+}
+
+.product-form-ingredients {
+    width: 100%;
+    margin-block: 30px;
+}
+
+.product-form-ingredients-list {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    overflow-x: scroll;
+    padding-block: 15px;
+    padding-inline: 25px;
+}
+
+.fade-left, .fade-right {
+    -webkit-transition: mask 0.5s ease-in-out;
+    transition: mask 0.5s ease-in-out;
+}
+
+.fade-right {
+    mask: linear-gradient(90deg, #000 85%, transparent);
+}
+
+.fade-left {
+    mask: linear-gradient(270deg, #000 85%, transparent);
+}
+
+.fade-left.fade-right {
+    mask: linear-gradient(270deg, #000 85%, transparent),
+        linear-gradient(90deg, #000 85%, transparent);
+    mask-composite: add;
+    -webkit-mask-composite: source-in;
+}
+
+.product-form-ingredient {
+    display: flex;
+    flex-direction: column;
+    border: #000 1px;
+    min-width: 120px;
+    margin-right: 20px;
     align-items: center;
-    flex-wrap: wrap;
+}
+
+.product-form-ingredient:is(:last-child) {
+    margin-right: 0;
+}
+
+.product-form-ingredient label {
+    margin-bottom: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+.product-form-ingredient img {
+    width: 80px;
+    margin-block: 5px;
+}
+
+.product-form-ingredient input {
+    width: 120px;
+    text-align: center;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.product-form-ingredient input::-webkit-outer-spin-button,
+.product-form-ingredient input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.product-form-ingredient input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.product-form-ingredient-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.product-form-ingredient-input button {
+    width: 40px;
+    text-align: center;
+    margin: 0;
+}
+
+.product-form-ingredient-input button:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.product-form-ingredient-input button:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+
+.product-form-submit>.product-buy {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
+    flex-wrap: nowrap;
     margin-top: 20px;
 }
 
 .product-form-submit>.product-buy>.primary-button {
     white-space: wrap;
+    width: min(100%, 400px);
+    min-width: 250px;
 }
 
 .product-form-submit>.product-buy>.product-price {
-    margin-left: 20px;
+    margin-right: 20px;
     margin-block: 0;
+    white-space: nowrap;
+    width: max-content;
 }
 
 @media screen and (max-width: 1350px) {
@@ -142,12 +341,15 @@ a.categorie {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: min(100%, 550px);
+        width: 100%;
         margin-inline: auto;
     }
 
-    .product-info>img {
+    .product-img {
         width: min(100%, 550px);
+    }
+
+    .product-left {
         margin-bottom: 20px;
     }
 
@@ -155,47 +357,35 @@ a.categorie {
         width: 100%;
         margin-left: 0;
     }
-
-    .product-info>.product-details>.product-description {
-        width: 100%;
-        align-items: flex-start;
-    }
 }
 
-/* Ingredients & Allergens */
-.ingredients, .allergenes {
+/* Allergens */
+.allergenes {
     display: flex;
-    flex-direction: row;
-    /* flex-wrap: wrap; */
+    flex-direction: column;
+    width: 100%;
+    flex-wrap: wrap;
     justify-content: left;
-    align-items: center;
     align-content: flex-start;
 }
 
-.ingredients h4, .allergenes h4 {
+.allergenes h4 {
     width: fit-content;
     white-space: nowrap;
 }
 
-.ingredient, .allergene {
+.allergene {
     display: inline-block;
     margin-inline: 5px;
 }
 
-.ingredient img, .allergene img {
-    width: 60px;
+.allergene img {
+    width: 40px;
 }
 
-.ingredient p, .allergene p {
+.allergene p {
     width: 100%;
     text-align: center;
     margin: 0;
     padding: 0;
-}
-
-@media screen and (max-width: 850px) {
-    .ingredients, .allergenes {
-        flex-direction: column;
-        width: 100%;
-    }
 }

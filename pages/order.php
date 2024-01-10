@@ -1,4 +1,4 @@
-<!--?php session_start(); ?-->
+<?php session_start(); ?>
 <?php include_once('../config/config.php'); ?>
 <?php require_once("../scripts/php/check_maintenance.php"); ?>
 
@@ -12,15 +12,18 @@
         <?php include("../views/components/header.php"); ?>
         
         <main class="order-page">
+            <!-- imports -->
             <?php
                 include("../controllers/controllerProduit.php");
                 include("../controllers/controllerPanier.php");
             ?>
 
             <div class="page-content">
+            <!-- Show products grid -->
                 <?php
                     $controllerProduit = new controllerProduit();
 
+                    // filter by category
                     if (isset($_GET['categorie'])) {
                         $currentUrl = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
                         $urlWithoutParameters = strtok($currentUrl, '?');
@@ -30,17 +33,16 @@
 
 
                         $controllerProduit->showProduitsGrid($_GET['categorie']);
-                    } else {
-                        $controllerProduit->showProduitsGrid();
                     }
-
-                    $controllerPanier = new controllerPanier();
-                    if (isset($_GET['ajoutPanier'])) {
-                        $controllerPanier->addProduit($_GET['ajoutPanier'], isset($_GET['quantite']) ? $_GET['quantite'] : 1);
+                    
+                    // Show all products
+                    else {
+                        $controllerProduit->showProduitsGrid();
                     }
                 ?>
             </div>
 
+            <!-- Show the shopping cart -->
             <?php
                 $controllerPanier = new controllerPanier();
                 $controllerPanier->showPanier();
