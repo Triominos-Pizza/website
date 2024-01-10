@@ -14,8 +14,17 @@
     // Si true, alors le site est en maintenance
     // et on affiche la page maintenance.php
     define("MAINTENANCE", FALSE);
+    $MAINTENANCE = MAINTENANCE;
+
+    define("SLOGAN", "La première chaine de pizzerias ouvertes dans des IUTs.");
+    $SLOGAN = SLOGAN;
 
     // Le chemin de la racine du site
-    define("ROOT_PATH", "/triominos");
+    define("FTP_ROOT_PATH", "/var/www/html/triominos"); // pas de slash à la fin
+    define("ROOT_PATH", ""); // pas de slash à la fin
+    define("ROOT_URL", "http://www.example.com/triominos"); // pas de slash à la fin
     $ROOT_PATH = ROOT_PATH;
+    $ROOT_URL = ROOT_URL;
+
+    $CONFIG_IMPORTED = true;
 ?>
