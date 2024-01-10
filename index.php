@@ -17,7 +17,7 @@
             <h1>Bienvenue chez Triomino's Pizza !</h1>
             <p>La première chaine de pizzerias ouvertes dans des IUTs ! 🍕</p>
             <div>
-                <a class="primary-button large-button" href='<?= $ROOT_URL ?>/pages/order.php'>Commander maintenant 🢂</a>
+                <a class="primary-button large-button" href='<?= $ROOT_URL ?>/pages/order.php'>Commander maintenant 🍴</a>
             </div>
         </main>
 
