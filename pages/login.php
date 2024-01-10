@@ -13,6 +13,17 @@
         <main>
             <?php
                 include("../controllers/controllerCompteClient.php");
+
+                if (!isset($_GET['callback_url'])) {
+                    if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], ROOT_URL) !== false) {
+                        $callback_url = substr($_SERVER['HTTP_REFERER'], strlen(ROOT_URL));
+                        if ($callback_url == "/pages/login.php") {
+                            $callback_url = "/index.php";
+                        }
+                        header("Location: " . $_SERVER['PHP_SELF'] . "?callback_url=" . $callback_url);
+                        exit();
+                    }
+                }
                 
                 if (isset($_POST['email']) && isset($_POST['password'])) {
                     $controllerCompteClient = new controllerCompteClient();
@@ -23,9 +34,12 @@
                         // connexion
                         $compteClient = $controllerCompteClient->connect($email, hash('sha256', $password));
 
-                        // redirection (à un URL prédéfini dans l'URL le cas échéant, à l'accueil sinon)
+                        // redirection (à un URL prédéfini dans l'URL le cas échéant, à la page précédente sinon si elle est sur le même site, sinon à l'accueil)
                         if (isset($_GET['callback_url'])) {
                             header("Location: " . ROOT_URL . $_GET['callback_url']);
+                            exit();
+                        } else if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], ROOT_URL) !== false) {
+                            header("Location: " . $_SERVER['HTTP_REFERER']);
                             exit();
                         }
                         header("Location: $ROOT_PATH/index.php");
