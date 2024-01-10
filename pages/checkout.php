@@ -12,8 +12,27 @@
 <body>
     <?php include("../views/components/header.php"); ?>
 
-    <h1>Paiement</h1>
-    TODO
+    <!-- Imports -->
+    <?php
+        include("../controllers/controllerPanier.php");
+        include("../controllers/controllerPaiement.php");
+    ?>
+
+    <main class="checkout-page">
+
+        <!-- Show the shopping cart -->
+        <?php
+            $controllerPanier = new controllerPanier();
+            $controllerPanier->showPanier(false);
+        ?>
+        
+        <!-- Show the payment form -->
+        <?php
+            $controllerPaiement = new controllerPaiement();
+            $controllerPaiement->showPaiementForm();
+        ?>
+        
+    </main>
 
     <?php include("../views/components/footer.php"); ?>
 </body>

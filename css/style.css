@@ -15,6 +15,7 @@
 @import "./pages/maintenance.css";
 @import "./pages/order.css";
 @import "./pages/product.css";
+@import "./pages/checkout.css";
 @import "./pages/account.css";
 
 /* import google font */
@@ -28,7 +29,7 @@ body {
 
 main {
     padding-block: 75px;
-    padding-inline: max(5%, 50px);
+    padding-inline: min(5%, 50px);
 }
 
 ::selection {
