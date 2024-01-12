@@ -27,11 +27,11 @@
             $res = static::$connexion->prepare($requetePreparee);
 
             $tags = array(
-                "prenom" => $prenom,
-                "nom" => $nom,
-                "email" => $email,
-                "tel" => $tel,
-                "mdp" => $mdp,
+                "prenom" => trim($prenom),
+                "nom" => trim($nom),
+                "email" => trim($email),
+                "tel" => trim($tel),
+                "mdp" => trim($mdp),
                 "urlPhotoProfil" => null,
                 "ptsFidelite" => 0,
             );
@@ -230,7 +230,7 @@
             $_SESSION['account']['nomClient'] = $resultat['nomClient'];
             $_SESSION['account']['emailClient'] = $resultat['emailClient'];
             $_SESSION['account']['telClient'] = $resultat['telClient'];
-            $_SESSION['account']['photoDeProfil'] = ROOT_PATH . (($resultat['urlPhotoProfilClient'] != "") ? $resultat['urlPhotoProfilClient'] : "/assets/images/profile_pictures/client/photoProfil_default.png");
+            $_SESSION['account']['photoDeProfil'] = ROOT_URL . (($resultat['urlPhotoProfilClient'] != "") ? $resultat['urlPhotoProfilClient'] : "/assets/images/profile_pictures/client/photoProfil_default.png");
             $_SESSION['account']['ptsFideliteClient'] = $resultat['ptsFideliteClient'];
 
             return $resultat;
