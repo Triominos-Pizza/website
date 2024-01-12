@@ -10,6 +10,11 @@ input, select {
     transition: all 0.3s ease;
 }
 
+input[type=checkbox] {
+    width: fit-content;
+    margin-bottom: 0;
+}
+
 label:has(+ *:required)::after {
     content: " *";
     color: red;
