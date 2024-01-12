@@ -88,7 +88,7 @@
     echo "<input type='number' id='idProduitASupprimer'>";
     echo "<button onclick='window.location.href=\"test-session.php?supprimerProduit&idProduitASupprimer=\"+document.getElementById(\"idProduitASupprimer\").value'>Supprimer un produit</button><br>";
     if (isset($_GET['supprimerProduit'])) {
-        panier::delete($_GET['idProduitASupprimer']);
+        panier::remove($_GET['idProduitASupprimer']);
     }
 
     // button "vider session"
