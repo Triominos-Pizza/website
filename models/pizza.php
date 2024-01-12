@@ -362,6 +362,10 @@
             }
             return $prix;
         }
+
+        public static function updateStockIngredient($ingredients) {
+            // TODO
+        }
     }
 
 ?>

@@ -37,6 +37,7 @@
                     <a href="<?=$ROOT_PATH?>/index.php">Accueil</a>
                     <a href="<?=$ROOT_PATH?>/pages/products.php">Nos pizzas</a>
                     <a href="<?=$ROOT_PATH?>/pages/contact.php">Contact</a>
+                    <a href="<?=$ROOT_PATH?>/pages/admin/login.php">Accès administrateur</a>
                 </div>
                 <div class="footer__links__legal">
                     <h3>Légal</h3>

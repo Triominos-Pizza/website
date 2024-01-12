@@ -135,3 +135,6 @@ function fillHiddenFields(addressesList) {
         });
     }   
 }
+
+// onload
+document.addEventListener('DOMContentLoaded', fillHiddenFields.bind(null, []));

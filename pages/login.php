@@ -75,3 +75,4 @@
 
         <?php include("../views/components/footer.php"); ?>
     </body>
+</html>

@@ -93,12 +93,20 @@
             }
         }
 
-        public static function getCardType($cc_number) {
-            $card_type = static::validate_cc_number($cc_number);
+        public function getCardType() {
+            $card_type = static::validate_cc_number($this->numeroCarte);
             if ($card_type == false) {
                 throw new Exception("Numéro de carte invalide");
             }
             return $card_type;
+        }
+
+        public static function pay($nomCarte, $numeroCarteStr, $dateExpirationStr, $codeSecuriteStr) : bool {
+            // Simulation de paiement
+            $card = new cb($nomCarte, $numeroCarteStr, $dateExpirationStr, $codeSecuriteStr);
+            $paiementReussi = $card->check();
+            if ($paiementReussi) { return true; }
+            throw new Exception("Paiement échoué");
         }
 
         public static function tests() {

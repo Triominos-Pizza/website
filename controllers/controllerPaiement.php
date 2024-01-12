@@ -13,21 +13,19 @@
     if (isset($_POST["form"])) {
         switch ($_POST["form"]) {
             case "pay":
-                // Paiement (simulation)
-                $card = new cb($_POST["nomCarte"], $_POST["numeroCarte"], $_POST["dateExpiration"], $_POST["codeSecurite"]);
                 try {
                     // Simulation de paiement
                     // (vérifie que le numéro de carte est un numéro de carte valide visa ou mastercard
                     // et que la date d'expiration n'est pas dépassée)
-                    $card->check();
+                    $card = new cb($_POST["nomCarte"], $_POST["numeroCarte"], $_POST["dateExpiration"], $_POST["codeSecurite"]);
+                    cb::pay($card->nomCarte, $card->numeroCarte, $card->dateExpirationStr, $card->codeSecurite);
 
                     // Ici on prendrait une empreinte bancaire dans un cas réel
                 } catch (Exception $e) {
                     echo "<div class='error-message'>Erreur lors de la vérification de la carte bancaire : " . $e->getMessage() . "</div>";
                     exit();
                 }
-                echo "<div class='success-message'>Carte valide (".cb::getCardType($card->numeroCarte).")</div>";
-
+                
                 // Enregistrement de la commande dans la BDD et suppression du panier
                 try {
                     $idCommande = panier::registerCommande($_SESSION['panier'], $_SESSION['account'], $_POST);
@@ -38,11 +36,16 @@
 
                 // Ici on validerait le paiement auprès de la banque dans un cas réel
 
+                
                 // TODO : Envoyer un mail de confirmation de commande
-
+                
                 // Redirection vers la page de validation de commande
                 $_SESSION["idCommande"] = $idCommande;
-                header("Location: " . ROOT_URL ."/pages/order_confirmation.php");
+                // header("Location: " . ROOT_URL ."/pages/order_confirmation.php");
+                echo "<script type='text/javascript'>
+                    alert('Paiement effectué avec succès (Carte **** **** **** " . substr($_POST["numeroCarte"], -4) . " " . $card->getCardType() . ")');
+                    window.location.href = '" . ROOT_URL ."/pages/order_confirmation.php';
+                </script>";
                 
             default:
                 break;
@@ -128,7 +131,7 @@
                     // Code promotionnel
                     echo "<div class='paiement-form-input'>";
                         echo "<label for='codePromo'>Code promo</label>";
-                        echo "<input type='text' name='codePromo' id='codePromo' data-force-uppercase data-accepted-characters='" . htmlspecialchars("A-Z0-9\-", ENT_QUOTES) . "' />";
+                        echo "<input type='text' name='codePromo' id='codePromo' data-force-uppercase data-accepted-characters='" . htmlspecialchars("A-Z0-9\-_", ENT_QUOTES) . "' />";
                     echo "</div>";
 
                     // Bouton "Payer"
@@ -137,14 +140,6 @@
                     echo "</div>";
                 echo "</form>";
             echo "</div>";
-        }
-
-        public static function pay($nomCarte, $numeroCarte, $dateExpirationStr, $codeSecurite) : bool {
-            // Simulation de paiement
-            $card = new cb($nomCarte, $numeroCarte, $dateExpirationStr, $codeSecurite);
-            $paiementReussi = $card->check();
-            if ($paiementReussi) { return true; }
-            throw new Exception("Paiement échoué");
         }
     }
 ?>

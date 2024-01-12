@@ -1,0 +1,96 @@
+/* define variables */
+:root {
+    --navbar-img-width: 50px;
+    --navbar-width: 75px;
+    --navbar-width-hover: 300px;
+
+    /* colors */
+    --navbar-color: #d9d9d9;
+    --navbar-color-hover: #ccc;
+}
+
+.admin-page nav {
+    position: fixed;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-block: 0;
+    width: var(--navbar-width);
+    height: 100vh;
+    background-color: var(--navbar-color);
+
+    box-shadow: -4px 0px 20px 0 rgba(0, 0, 0, 0.9);
+}
+
+body.admin-page>*:not(nav) {
+    margin-left: var(--navbar-width);
+}
+
+.admin-page nav ul {
+    list-style-type: none;
+    padding-inline: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-block: 0;
+    padding-block: 0;
+    width: 100%;
+}
+
+.admin-page nav ul li {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: var(--navbar-width);
+    aspect-ratio: 1;
+}
+
+.admin-page nav ul li a {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: var(--navbar-width);
+
+    /* reset */
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+}
+
+.admin-page nav ul li a:hover {
+    background-color: var(--navbar-color-hover);
+}
+
+.admin-page nav:hover {
+    width: var(--navbar-width-hover);
+}
+
+.admin-page nav ul li p {
+    /* hidden but not with display: none; because it would break the transition */
+    color: transparent;
+    width: 0;
+    overflow: hidden;
+
+    /* appear on the left */
+    transition: width 0.5s ease-in-out;
+}
+
+.admin-page nav:hover ul li p {
+    color: #000;
+    width: auto;
+    height: auto;
+}
+
+.admin-page nav ul li a img {
+    width: var(--navbar-img-width);
+    height: var(--navbar-img-width);
+    aspect-ratio: 1;
+    margin: calc((var(--navbar-width) - var(--navbar-img-width)) / 2);
+}

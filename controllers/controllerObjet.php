@@ -4,9 +4,10 @@
         static protected $connexion;
 
         public function __construct() {
-            require_once('../config/config.php');
-            require_once('../config/db.php');
-            static::$connexion = connexion::connect();
+            !isset($CONFIG_IMPORTED) ? require_once(FTP_ROOT_PATH.'/config/config.php') : null;
+            require_once(FTP_ROOT_PATH.'/config/db.php');
+
+            static::$connexion = connexion::connect(); // à retirer après avoir déplacé les appels à la BDD dans les modèles
         }
     }
 

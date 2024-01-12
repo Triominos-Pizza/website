@@ -1,4 +1,6 @@
 <?php
+    !isset($CONFIG_IMPORTED) ? require_once("../config/config.php") : null;
+
     class_exists('controllerObjet') ? null : require("../controllers/controllerObjet.php");
     require_once("../controllers/controllerProduit.php");
 
@@ -23,9 +25,6 @@
                 // construct Produit or Pizza object
                 if (produit::isPizza($_POST["id"])) {
                     $produit = new pizza($_POST["id"], $_POST["pate"], $_POST["sauce"], $_POST["taille"], $_POST["ingredients"]);
-                    // echo "<pre><h1>\$produit</h1>"; var_dump($produit); echo "</pre>";
-                    // echo "<pre><h1>\$_POST</h1>"; var_dump($_POST); echo "</pre>";
-                    // exit();
                 } else {
                     $produit = new produit($_POST["id"]);
                 }
@@ -87,8 +86,6 @@
                             for ($i = 0; $i < count($produits); $i++) {
                                 $produit = static::$panier->getProduitsSeuls()[$i];
                                 $isPizza = produit::isPizza($produit["produit"]->idFicheProduit);
-
-                                // echo "<pre>"; var_dump($produit); echo "</pre>";
 
                                 echo "<li class='panier-produit'>";
 

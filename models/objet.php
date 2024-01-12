@@ -1,5 +1,5 @@
 <?php
-    require_once('../config/db.php');
+    require_once(FTP_ROOT_PATH.'/config/db.php');
     
     class objet {
         static protected $connexion;

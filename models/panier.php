@@ -238,7 +238,6 @@
             ));
             $resultat = $res->fetch();
             $idCommande = static::$connexion->lastInsertId();
-            echo "<pre>"; var_dump($idCommande); echo "</pre>";
             
 
             // ----- 2. Ajouter les produits seuls à la bdd -----

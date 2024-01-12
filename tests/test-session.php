@@ -1,4 +1,6 @@
 <?php
+    require_once("../config/config.php");
+
     require_once("../models/produit.php");
     require_once("../controllers/controllerProduit.php");
     

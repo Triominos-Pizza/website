@@ -1,4 +1,4 @@
-<header>
+<header class="header-client">
     <a href="<?=$ROOT_URL?>/index.php" id="header-logo">
         <img src="<?=$ROOT_PATH?>/assets/images/logos/logo_text_horizontal.svg" alt="Logo de Triomino's Pizza" id="header-logo-img" />
     </a>

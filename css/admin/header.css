@@ -1,0 +1,77 @@
+header.header-admin {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    min-height: 75px;
+    flex-wrap: wrap;
+}
+
+header.header-admin #header-logo {
+    flex-wrap: nowrap;
+}
+
+header.header-admin #header-account {
+    flex-wrap: wrap;
+}
+
+header.header-admin #header-logo, header.header-admin #header-logo-img {
+    height: 40px;
+    width: auto;
+    margin-inline: 25px;
+    margin-block: 15px;
+}
+
+header.header-admin #header-account {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-inline: 25px;
+}
+
+@media screen and (max-width: 650px) {
+    header.header-admin {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    header.header-admin #header-account {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    
+}
+
+header.header-admin #header-account #header-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+header.header-admin #header-account #header-buttons>* {
+    margin-block: 5px;
+    margin-inline: 5px;
+    width: min(100%, 130px);
+}
+
+header.header-admin #header-account a#header-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+header.header-admin #header-account a#header-profile img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-inline: 10px;
+}
+
+header.header-admin #header-account a#header-profile {
+    color: black;
+    text-decoration: none;
+    font-size: 23px;
+}

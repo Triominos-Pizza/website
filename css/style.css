@@ -18,6 +18,11 @@
 @import "./pages/checkout.css";
 @import "./pages/order_confirmation.css";
 
+/* Admin */
+@import "./admin/admin.css";
+@import "./admin/navbar.css";
+@import "./admin/header.css";
+
 /* import google font */
 @import "../assets/fonts/kanit.css";
 

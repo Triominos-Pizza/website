@@ -1,4 +1,4 @@
-header {
+header.header-client {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -12,27 +12,27 @@ header {
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.9);
 }
 
-header #header-logo, header #header-account {
+header.header-client #header-logo, header.header-client #header-account {
     display: flex;
     align-items: center;
 }
 
-header #header-logo {
+header.header-client #header-logo {
     flex-wrap: nowrap;
 }
 
-header #header-account {
+header.header-client #header-account {
     flex-wrap: wrap;
 }
 
-header #header-logo, header #header-logo-img {
+header.header-client #header-logo, header.header-client #header-logo-img {
     height: 40px;
     width: auto;
     margin-inline: 25px;
     margin-block: 15px;
 }
 
-header #header-account {
+header.header-client #header-account {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -40,7 +40,7 @@ header #header-account {
     padding-inline: 25px;
 }
 
-header #header-account #header-buttons {
+header.header-client #header-account #header-buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -48,13 +48,13 @@ header #header-account #header-buttons {
     flex-wrap: nowrap;
 }
 
-header #header-account #header-buttons>* {
+header.header-client #header-account #header-buttons>* {
     margin-block: 5px;
     margin-inline: 5px;
     width: min(100%, 130px);
 }
 
-header #header-account a#header-profile {
+header.header-client #header-account a#header-profile {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -62,18 +62,18 @@ header #header-account a#header-profile {
     padding-inline: 25px;
 }
 
-header #header-account a#header-profile img {
+header.header-client #header-account a#header-profile img {
     height: 40px;
     width: auto;
     border-radius: 20px;
     margin-right: 10px;
 }
 
-header #header-account a#header-profile {
+header.header-client #header-account a#header-profile {
     color: #fff;
     text-decoration: none;
 }
 
-header #header-account a#header-profile p {
+header.header-client #header-account a#header-profile p {
     font-size: 20px;
 }
