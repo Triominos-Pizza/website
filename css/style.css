@@ -12,13 +12,13 @@
 /* Specific pages */
 @import "./pages/index.css";
 @import "./pages/maintenance.css";
+@import "./pages/account.css";
 @import "./pages/order.css";
 @import "./pages/product.css";
 @import "./pages/checkout.css";
-@import "./pages/account.css";
+@import "./pages/order_confirmation.css";
 
 /* import google font */
-/* @import url('https://fonts.googleapis.com/css?family=Kanit:300,400,500,700,900'); */
 @import "../assets/fonts/kanit.css";
 
 body {
@@ -38,10 +38,12 @@ main {
 }
 
 :focus {
-    outline: #cc213c groove 3px;
-    border-radius: 5px;
+    outline: none;
+    box-shadow: 0 0 0 3px #cc213c;
 }
 
 * {
     font-family: 'Kanit', Tahoma, sans-serif;
+    transition: all 0.2s ease-in-out;
+    scroll-behavior: smooth;
 }

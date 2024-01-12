@@ -1,6 +1,6 @@
 <?php
+    class_exists('controllerObjet') ? null : require("../controllers/controllerObjet.php");
     require_once("../models/produit.php");
-    require_once("../controllers/controllerObjet.php");
 
 class controllerProduit extends controllerObjet {
         public function __construct() {
@@ -200,7 +200,7 @@ class controllerProduit extends controllerObjet {
 
                             echo "<div class='product-form-ingredient'>";
                                 // price supplement
-                                echo "<input type='hidden' name='ingredientsSupplement[".$ingredient["idIngredient"]."]' value='" . $ingredient["prixVenteIngredient"] . "' />";
+                                echo "<input type='hidden' id='ingredient-".$ingredient["idIngredient"]."-price' name='ingredientsSupplement[".$ingredient["idIngredient"]."]' value='" . $ingredient["prixVenteIngredient"] . "' />";
 
                                 // label
                                 echo "<label for='ingredient-" . $ingredient["idIngredient"] . " default='" . $ingredient["nomIngredient"] . "'>";

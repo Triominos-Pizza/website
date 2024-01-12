@@ -26,4 +26,170 @@ main.checkout-page {
 
 .checkout-page .paiement-form {
     width: 100%;
+    container-name: paiement-form;
+    container-type: inline-size;
+}
+
+.checkout-page .paiement-form .paiement-form-input {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Address autocomplete */
+/* <ul class="autocomplete-list"><li class="autocomplete-item"><button>2 Allée des Glycines 91240 Saint-Michel-sur-Orge</button></li><li class="autocomplete-item"><button>2 Allée des Glycines 94310 Orly</button></li><li class="autocomplete-item"><button>2 Allée des Glycines 91160 Longjumeau</button></li><li class="autocomplete-item"><button>2 Allee des Glycines 91170 Viry-Châtillon</button></li><li class="autocomplete-item"><button>2 Allée des Glycines 92260 Fontenay-aux-Roses</button></li></ul> */
+
+.checkout-page .autocomplete-list {
+    list-style-type: none;
+    padding-inline: 0;
+    padding-block: 0;
+    margin-block: 0;
+    margin-inline: 0;
+    margin-bottom: 5px;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: 0 0 5px 1px #ccc;
+}
+
+.checkout-page .autocomplete-item {
+    padding: 3px;
+}
+
+.checkout-page .autocomplete-item button {
+    padding-inline: 10px;
+    padding-block: 3px;
+    width: 100%;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    color: #000;
+}
+
+.checkout-page .autocomplete-item button:hover {
+    background-color: #ccc;
+}
+
+/* select input.adresse if it has a neighbour .autocomplete-list */
+input#adresse:has(~ .autocomplete-list) {
+    margin-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+
+/* estEnLivraison checkbox */
+.checkout-page .paiement-form .paiement-form-input:has(input#estEnLivraison) {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.checkout-page .paiement-form .paiement-form-input:has(input#estEnLivraison) label {
+    margin-right: 10px;
+    /* change checkbox label size */
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.checkout-page .paiement-form .paiement-form-input:has(input#estEnLivraison) input {
+    /* change checkbox size */
+    width: 20px;
+    height: 20px;
+}
+
+
+/* Code postal & Ville + Numéro de rue & Nom de rue */
+.checkout-page .paiement-form .paiement-form-cp-ville {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.checkout-page .paiement-form .paiement-form-cp-ville .paiement-form-input:has(input#ville) {
+    width: 100%;
+    margin-left: 20px;
+}
+
+.checkout-page .paiement-form .paiement-form-cp-ville input {
+    width: 100%;
+}
+
+.checkout-page .paiement-form .paiement-form-cp-ville input#codePostal {
+    width: max(50%, 200px);
+}
+
+@container paiement-form (max-width: 400px) {
+    .checkout-page .paiement-form .paiement-form-cp-ville {
+        flex-direction: column;
+    }
+
+    .checkout-page .paiement-form .paiement-form-cp-ville .paiement-form-input:has(input#ville) {
+        margin-left: 0;
+    }
+
+    .checkout-page .paiement-form .paiement-form-cp-ville input#codePostal {
+        width: 100%;
+    }
+}
+
+
+/* CB : Date d'expliration & CVV */
+.checkout-page .paiement-form .paiement-form-date-cvv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.checkout-page .paiement-form .paiement-form-date-cvv input {
+    width: min(98%, 500px);
+}
+
+.checkout-page .paiement-form .paiement-form-date-cvv .paiement-form-input:has(input#codeSecurite) {
+    margin-left: 20px;
+}
+
+
+@container paiement-form (min-width: 600px) {
+    .checkout-page .paiement-form .paiement-form-date-cvv {
+        justify-content: flex-start;
+    }
+}
+
+@container paiement-form (max-width: 350px) {
+    .checkout-page .paiement-form .paiement-form-date-cvv {
+        flex-direction: column;
+    }
+
+    .checkout-page .paiement-form .paiement-form-date-cvv .paiement-form-input:has(input#codeSecurite) {
+        margin-left: 0;
+    }
+}
+
+
+/* Code promo */
+.checkout-page .paiement-form label[for="codePromo"] {
+    margin-top: 25px;
+}
+
+
+/* Logos des modes de paiement acceptés */
+.paiement-form-accepted-cards {
+    display: flex;
+    flex-direction: row;
+    justify-items: start;
+    grid-gap: 10px;
+    margin-bottom: 20px;
+}
+
+.paiement-form-accepted-cards img.paiement-form-accepted-card {
+    width: min(30%, 55px);
 }
