@@ -16,7 +16,7 @@
         switch ($_POST["form"]) {
             case "supprimerProduit":
                 // Delete product from cart
-                panier::delete($_POST["posProduitASupprimer"]);
+                panier::remove($_POST["posProduitASupprimer"]);
                 break;
 
             case "ajouterProduit":
@@ -70,6 +70,10 @@
                 if (!isset($_SESSION['panier'])) { static::$panier->set(); }
                 $produits = static::$panier->getProduitsSeuls();
 
+                // Record the number of products in the cart to use it in js scripts
+                echo "<input type='hidden' id='nbProduitsDansPanier' value='".count($produits)."' />";
+
+
                 if (is_null($produits) or count($produits) == 0) {
                     echo "<div class='error-message'>";
                     echo "Aucun produit dans le panier";
@@ -79,6 +83,7 @@
                 else {
                     echo "<div class='panier-produits'>";
                         echo "<ul class='panier-liste'>";
+
                             for ($i = 0; $i < count($produits); $i++) {
                                 $produit = static::$panier->getProduitsSeuls()[$i];
                                 $isPizza = produit::isPizza($produit["produit"]->idFicheProduit);
@@ -100,30 +105,32 @@
 
                                         // Suppléments
                                         if (produit::isPizza($produit["produit"]->idFicheProduit)) {
-                                            // Options
-                                            echo "<ul class='panier-produit-supplements'>";
-                                                $nomSauce = pizza::getNomSauceFromId($produit['produit']->idSauce);
-                                                echo "<li>Base ". $nomSauce ."</li>";
-                                                $nomPate = pizza::getNomPateFromId($produit['produit']->idPate);
-                                                echo "<li>". $nomPate ."</li>";
-                                                $nomTaillePizza = pizza::getNomTaillePizzaFromId($produit['produit']->idTaillePizza);
-                                                echo "<li>Taille : ". $nomTaillePizza ."</li>";
+                                            echo "<div class='panier-produit-options'>";
+                                                // Options
+                                                echo "<ul class='panier-produit-supplements'>";
+                                                    $nomSauce = pizza::getNomSauceFromId($produit['produit']->idSauce);
+                                                    echo "<li>Base ". $nomSauce ."</li>";
+                                                    $nomPate = pizza::getNomPateFromId($produit['produit']->idPate);
+                                                    echo "<li>". $nomPate ."</li>";
+                                                    $nomTaillePizza = pizza::getNomTaillePizzaFromId($produit['produit']->idTaillePizza);
+                                                    echo "<li>Taille : ". $nomTaillePizza ."</li>";
 
-                                            echo "</ul>";
+                                                echo "</ul>";
 
-                                            // Ingredients retirés
-                                            echo "<ul class='panier-produit-ingredients-retires'>";
-                                                foreach ($produit['produit']->ingredientsRetires as $ingredient) {
-                                                    echo "<li><i>" . $ingredient['quantite'] . "x</i> " . $ingredient['nomIngredient'] . "</li>";
-                                                }
-                                            echo "</ul>";
+                                                // Ingredients retirés
+                                                echo "<ul class='panier-produit-ingredients-retires'>";
+                                                    foreach ($produit['produit']->ingredientsRetires as $ingredient) {
+                                                        echo "<li><i>" . $ingredient['quantite'] . "x</i> " . $ingredient['nomIngredient'] . "</li>";
+                                                    }
+                                                echo "</ul>";
 
-                                            // Ingredients ajoutés
-                                            echo "<ul class='panier-produit-ingredients-ajoutes'>";
-                                                foreach ($produit['produit']->ingredientsAjoutes as $ingredient) {
-                                                    echo "<li><i>" . $ingredient['quantite'] . "x</i> " . $ingredient['nomIngredient'] . "</li>";
-                                                }
-                                            echo "</ul>";
+                                                // Ingredients ajoutés
+                                                echo "<ul class='panier-produit-ingredients-ajoutes'>";
+                                                    foreach ($produit['produit']->ingredientsAjoutes as $ingredient) {
+                                                        echo "<li><i>" . $ingredient['quantite'] . "x</i> " . $ingredient['nomIngredient'] . "</li>";
+                                                    }
+                                                echo "</ul>";
+                                            echo "</div>";
                                         }
                                     
                                         // Prix

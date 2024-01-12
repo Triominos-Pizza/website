@@ -70,43 +70,42 @@
 }
 
 
-/* SUPPLEMENTS */
-.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-supplements,
-.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-ingredients-ajoutes,
-.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-ingredients-retires {
+/* OPTIONS */
+.panier-produit-options {
+    margin-bottom: 5px;
+}
+
+.panier-produit-options ul.panier-produit-supplements,
+.panier-produit-options ul.panier-produit-ingredients-ajoutes,
+.panier-produit-options ul.panier-produit-ingredients-retires {
     font-size: 0.9rem;
     font-weight: 300;
     margin-block: 5px;
     padding-left: 25px;
 }
 
-.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-supplements li,
-.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-ingredients-ajoutes li,
-.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-ingredients-retires li {
+.panier-produit-options ul.panier-produit-supplements li,
+.panier-produit-options ul.panier-produit-ingredients-ajoutes li,
+.panier-produit-options ul.panier-produit-ingredients-retires li {
     margin-block: -8px;
 }
 
-.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-supplements {
+.panier-produit-options ul.panier-produit-supplements {
     list-style-type: square;
 }
 
-.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-ingredients-ajoutes {
+.panier-produit-options ul.panier-produit-ingredients-ajoutes {
     list-style-type: "＋ ";
     color: #090;
 }
 
-.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-ingredients-retires {
+.panier-produit-options ul.panier-produit-ingredients-retires {
     list-style-type: "－ ";
     color: #D00;
 }
 
-.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-ingredients-ajoutes:not(:empty),
-.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-ingredients-retires:not(:empty) {
-    margin-top: 10px;
-}
-
-.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-ingredients-ajoutes:empty,
-.panier ul.panier-liste li.panier-produit .panier-produit-infos ul.panier-produit-ingredients-retires:empty {
+.panier-produit-options ul.panier-produit-ingredients-ajoutes:empty,
+.panier-produit-options ul.panier-produit-ingredients-retires:empty {
     display: none;
 }
 
