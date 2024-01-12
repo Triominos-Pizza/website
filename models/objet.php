@@ -19,14 +19,6 @@
             static::$connexion = connexion::connect();
         }
 
-        public function get($attribut) {
-            return $this->$attribut;
-        }
-
-        public function set($attribut, $valeur) : void {
-            $this->$attribut = $valeur;
-        }
-
         public function getId() {
             return static::$identifiant;
         }
@@ -87,7 +79,5 @@
                 throw new Exception("Erreur lors de la requête SQL : <br />" . $e->getMessage());
             }
         }
-
-
     }
 ?>
