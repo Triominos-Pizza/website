@@ -69,6 +69,4 @@
 - [ ] Rendre les allergènes dynamiques avec les suppléments (pâtes, sauces, ingrédients ajoutés, ...)
 - [ ] Sur mobile, afficher un bouton flottant pour scoller jusqu'au panier/remonter en haut
 - [x] Ajouter des logos Visa/Mastercard/... sur la page de paiement et/ou dans le footer
-- [ ] Faire en sorte que le formulaire de paiement soit considéré "sécurisé" par les navigateurs (pour avoir l'autocomplétion de CB)
-- [ ] Sur mobile, mettre un bouton pour scroller jusqu'au panier (et/ou pour remonter en haut)
 - [ ] Mettre un bouton sur la liste des produits pour ajouter au panier rapidement (sans passer par la page produit)

@@ -20,8 +20,13 @@ $\to$ [https://triominos-pizza.github.io/website/](https://triominos-pizza.githu
   - [ ] Gestion de mot de passe oublié *(envoi d'un mail de réinitialisation)*
   - [ ] Historique des commandes
 ### **Compte gestionnaire**
-  - [ ] Statistiques (CA mensuel/annuel, ...)
+  - [ ] Connexion/Déconnexion avec un compte gestionnaire
+  - [x] Statistiques (CA mensuel/annuel, ...)
   - [ ] Gestion des stocks
+  - [ ] Ajout de produits/pizzas
+  - [ ] Modification de produits/pizzas existants
+  - [ ] Ajout de menus
+  - [ ] Modification de menus existants
 ### **Commande**
   - [x] Ajout d'items au panier
     - [x] Produit seul
@@ -41,6 +46,7 @@ $\to$ [https://triominos-pizza.github.io/website/](https://triominos-pizza.githu
 ### **Autres**
 - [x] Page d'erreur 404
 - [x] Page de maintenance *(redirecton si le site est en maintenance ou si la base de données est inaccessible)*
+- [x] Style responsive sur toutes les pages
 - [ ] Version "Borne"
 - [ ] Progressive Web App (PWA)
 - [x] Easter Egg
