@@ -15,10 +15,17 @@ header {
 header #header-logo, header #header-account {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 header #header-logo {
+    flex-wrap: nowrap;
+}
+
+header #header-account {
+    flex-wrap: wrap;
+}
+
+header #header-logo, header #header-logo-img {
     height: 40px;
     width: auto;
     margin-inline: 25px;
@@ -43,6 +50,7 @@ header #header-account #header-buttons {
 
 header #header-account #header-buttons>* {
     margin-block: 5px;
+    margin-inline: 5px;
     width: min(100%, 130px);
 }
 
