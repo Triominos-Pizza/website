@@ -1,11 +1,7 @@
 <header>
-    <img
-        id="header-logo"
-        src="<?=$ROOT_PATH?>/assets/images/logos/logo_text_horizontal.svg"
-        alt="Logo de Triomino's Pizza"
-        onclick="window.location.href='<?=$ROOT_PATH?>/index.php'"
-        style="cursor: pointer;"
-    />
+    <a href="<?=$ROOT_URL?>/index.php" id="header-logo">
+        <img src="<?=$ROOT_PATH?>/assets/images/logos/logo_text_horizontal.svg" alt="Logo de Triomino's Pizza" id="header-logo-img" />
+    </a>
     
     <div id='header-account'>
         <?php
