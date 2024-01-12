@@ -28,7 +28,8 @@
                         $currentUrl = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
                         $urlWithoutParameters = strtok($currentUrl, '?');
                         
-                        echo "<h1>".$_GET['categorie']."</h1>";
+                        // Title with an uppercase first letter
+                        echo "<h1>" . ucfirst($_GET['categorie']) . "</h1>";
                         echo "<a href='$urlWithoutParameters'>Retirer le filtre 🔎</a>";
 
 
