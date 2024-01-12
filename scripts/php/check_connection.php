@@ -1,7 +1,9 @@
 <?php
     (session_status() == PHP_SESSION_NONE) && session_start();
     if (!isset($_SESSION['account']['idClient'])) {
-        header("Location: $ROOT_URL/pages/login.php?callback_url=".$_SERVER['REQUEST_URI']);
+        // The everything after "triominos/" not included in the URL
+        $callback_url = substr($_SERVER['HTTP_REFERER'], strlen(ROOT_URL));
+        header("Location: $ROOT_URL/pages/login.php?callback_url=$callback_url");
     }
 
     // Example of a session variable:
