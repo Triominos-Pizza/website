@@ -7,7 +7,43 @@ $\to$ [https://triominos-pizza.github.io/website/](https://triominos-pizza.githu
 
 ![image](https://github.com/Triominos-Pizza/website/assets/54336210/bc2d5a5c-c792-4807-848c-241bc4e7d131)
 
----
+## Fonctionnalités
+### **Page d'accueil**
+### **Compte client**
+  - [x] Création de compte
+  - [x] Connexion/Déconnexion
+  - [x] Modification des informations personnelles
+    - [x] Modification du mot de passe
+    - [ ] Modification de la photo de profil *(pas possible avec le serveur fourni par l'IUT)*
+  - [x] Mot de passe hashé dans la base de données *(sha256)*
+  - [x] Suppression du compte
+  - [ ] Gestion de mot de passe oublié *(envoi d'un mail de réinitialisation)*
+  - [ ] Historique des commandes
+### **Compte gestionnaire**
+  - [ ] Statistiques (CA mensuel/annuel, ...)
+  - [ ] Gestion des stocks
+### **Commande**
+  - [x] Ajout d'items au panier
+    - [x] Produit seul
+    - [ ] Menu
+  - [x] Affichage des allergènes sur la page produit
+  - [x] Personnalisation des pizzas
+    - [x] Choix des options *(taille, pâte, sauce, ...)*
+    - [x] Ajout/retrait d'ingrédients
+  - [x] Choisir le type de livraison (livraison ou à emporter/sur place)
+  - [x] Rentrer les informations de livraison
+    - [x] Autocomplétion de l'adresse *([API du gouvernement](https://geo.api.gouv.fr/adresse))*
+  - [x] Paiement (simultation)
+    - [x] Vérification que le numéro de carte bancaire est valide *(carte Visa/Mastercard + algorithme de Luhn (mod 10) + date d'expiration)*
+  - [x] Enregistement de la commande dans la bdd
+    - [ ] Vérification des stocks d'ingrédients et de produits
+    - [ ] Retirer les stocks d'ingrédients et de produits de la bdd
+### **Autres**
+- [x] Page d'erreur 404
+- [x] Page de maintenance *(redirecton si le site est en maintenance ou si la base de données est inaccessible)*
+- [ ] Version "Borne"
+- [ ] Progressive Web App (PWA)
+- [x] Easter Egg
 
 ## Installation
 ### Prérequis

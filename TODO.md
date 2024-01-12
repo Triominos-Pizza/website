@@ -25,7 +25,7 @@
   - [x] Paiement (simultation)
     - [x] Vérification que la carte bancaire est valide (Visa/Mastercard)
   - [ ] Vérification des stocks d'ingrédients et de produits
-  - [ ] Enregistement de la commande dans la bdd
+  - [x] Enregistement de la commande dans la bdd
   - [ ] Retirer les stocks d'ingrédients et de produits de la bdd
   - [x] Page de confirmation
 - [ ] Enlever le CSS du HTML et le mettre dans un fichier CSS
