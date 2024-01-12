@@ -15,7 +15,9 @@
 
         <main class="account">
             <?php
-                require_once("../controllers/ControllerCompteClient.php");
+                require_once(FTP_ROOT_PATH."/controllers/controllerCompteClient.php");
+
+                // TODO : Déplacer ce code dans ControllerCompteClient
                 $controllerCompteClient = new ControllerCompteClient();
                 if (isset($_POST['form'])) {
                     try {
@@ -38,15 +40,15 @@
                                 // Open a popup to confirm the account deletion
                                 echo "<script type='text/javascript'>";
                                 echo "alert('Compte supprimé avec succès');";
-                                echo "window.location.href = '$ROOT_PATH/index.php';";
+                                echo "window.location.href = '$ROOT_PATH/pages/login';";
                                 echo "</script>";
-                                break;
+                                exit();
                         }
         
                         // Open a popup to confirm the account modification
                         echo "<script type='text/javascript'>";
                         echo "alert('Compte modifié avec succès');";
-                        // echo "window.location.href = '$ROOT_PATH/pages/account.php';";
+                        echo "window.location = window.location.href;"; // Reload the page
                         echo "</script>";
                         exit();
         
@@ -61,17 +63,17 @@
             <h1>Mon compte</h1>
 
             <h2>Photo de profil</h2>
-            <form action="./account.php" method="post" enctype="multipart/form-data">
-                <img src="<?= $ROOT_PATH . $_SESSION['account']['photoDeProfil'] ?>" alt="Photo de profil" class="profile-picture-img">
+            <form id="update_profile_picture" action="./account.php" method="post" enctype="multipart/form-data">
+                <img src="<?= $_SESSION['account']['photoDeProfil'] ?>" alt="Photo de profil" class="profile-picture-img">
                 <div>
                     <input type="hidden" name="form" value="update_profile_picture">
-                    <input type="file" name="profile_picture" id="profile_picture" accept="image/png, image/jpeg, image/jpg" required disabled>
-                    <input type="submit" class="primary-button" value="Modifier" disabled>
+                    <input type="file" name="profile_picture" id="profile_picture" accept="image/png, image/jpeg, image/jpg" title="L'ajout de photo de profil est désactivé car le serveur n'est pas configuré pour gérer les fichiers" disabled required />
+                    <input type="submit" class="primary-button" value="Modifier" title="L'ajout de photo de profil est désactivé car le serveur n'est pas configuré pour gérer les fichiers" disabled>
                 </div>
             </form>
 
             <h2>Informations personnelles</h2>
-            <form action="./account.php" method="post" enctype="multipart/form-data">
+            <form id="update_account" action="./account.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="form" value="update_account">
                 <div class="fields">
                     <?php
@@ -96,11 +98,36 @@
                 </div>
 
                 <input type="submit" class="primary-button" value="Modifier">
+
+                <script type="text/javascript">
+                    const fields = document.querySelectorAll("form#update_account input:not([type='submit'])");
+                    const submitButton = document.querySelector("form#update_account input[type='submit']");
+
+                    // Check if all fields are different from their default value
+                    function checkFields() {
+                        let allFieldsAreDefault = true;
+                        fields.forEach(field => {
+                            if (field.value != field.defaultValue) {
+                                allFieldsAreDefault = false;
+                            }
+                        });
+                        submitButton.disabled = allFieldsAreDefault;
+                        submitButton.title = allFieldsAreDefault ? "Vous devez modifier au moins un champ pour pouvoir modifier votre compte" : "";
+                    }
+
+                    // Check if all fields are different from their default value when the page is loaded
+                    checkFields();
+
+                    // Check if all fields are different from their default value when the user types in a field
+                    fields.forEach(field => {
+                        field.addEventListener("input", checkFields);
+                    });
+                </script>
             </form>
 
 
             <h2>Changer de mot de passe</h2>
-            <form action="./account.php" method="post" enctype="multipart/form-data">
+            <form id="update_password" action="./account.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="form" value="update_password">
                 <div class="fields">
                     <div class="field">
@@ -135,9 +162,9 @@
             </form>
 
             <h2>Supprimer le compte</h2>
-            <form action="./account.php" method="post" enctype="multipart/form-data">
+            <form id="delete_account" action="./account.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="form" value="delete_account">
-                <input type="submit" class="danger-button" value="Supprimer le compte (irréversible)">
+                <input type="button" class="danger-button" value="Supprimer le compte (irréversible)" onclick="if (confirm('Êtes-vous sûr de vouloir supprimer votre compte ?')) document.getElementById('delete_account').submit();">
             </form>
         </main>
 
